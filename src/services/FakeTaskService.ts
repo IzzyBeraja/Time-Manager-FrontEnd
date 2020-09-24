@@ -1,10 +1,4 @@
-interface task {
-  Id: number;
-  Job: string;
-  Task: string;
-  StartTime: string;
-  EndTime: string;
-}
+import { task } from "../components/common/types";
 
 const tasks: Array<task> = [
   {
@@ -24,16 +18,16 @@ const tasks: Array<task> = [
   {
     Id: 3,
     Job: "Personal Project",
-    Task: "Build fake service",
-    StartTime: "6:00pm",
-    EndTime: "8:00pm",
+    Task: "Load fake service",
+    StartTime: "6:25pm",
+    EndTime: "8:15pm",
   },
   {
     Id: 4,
     Job: "Personal Project",
-    Task: "Build fake service",
-    StartTime: "6:00pm",
-    EndTime: "8:00pm",
+    Task: "Output fake service to tasks",
+    StartTime: "7:00pm",
+    EndTime: "9:00pm",
   },
 ];
 
