@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Timer from "./components/TimerTable";
+import TimerMenu from "./components/TimerMenu";
 
 function App() {
-  return <Timer />;
+  return <TimerMenu />;
 }
 
 export default App;
