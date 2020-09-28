@@ -1,6 +1,6 @@
-import { task } from "../components/common/types";
+import { Task } from "../components/common/types";
 
-const tasks: Array<task> = [
+const tasks: Array<Task> = [
   {
     Id: 1,
     Job: "Work",
@@ -31,11 +31,11 @@ const tasks: Array<task> = [
   },
 ];
 
-export function getTasks(): Array<task> {
+export function getTasks(): Array<Task> {
   return tasks;
 }
 
-export function getTask(id: number): task | null {
+export function getTask(id: number): Task | null {
   const item = tasks.find(t => t.Id === id);
   return item ? item : null;
 }

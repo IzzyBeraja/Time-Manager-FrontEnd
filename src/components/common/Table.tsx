@@ -1,8 +1,8 @@
 import React from "react";
-import { task } from "./types";
+import { Task } from "./types";
 
 interface Props {
-  tasks: Array<task>;
+  tasks: Array<Task>;
 }
 
 const Table: React.FC<Props> = ({ tasks }) => {
