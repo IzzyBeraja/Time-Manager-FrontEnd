@@ -3,12 +3,14 @@ import { Task } from "./types";
 
 interface Props {
   tasks: Array<Task>;
+  action?: "ease" | "ease-out" | "ease-in";
 }
 
-const Table: React.FC<Props> = ({ tasks }) => {
+const Table: React.FC<Props> = ({ tasks, action }) => {
   return (
-    <div>
+    <>
       <table className="table bg-light text-center">
+        <h1>{action || "empty"}</h1>
         <thead className="thead-dark">
           <tr>
             <th>Job</th>
@@ -28,7 +30,7 @@ const Table: React.FC<Props> = ({ tasks }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
