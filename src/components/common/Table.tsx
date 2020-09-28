@@ -1,11 +1,11 @@
 import React from "react";
 import { task } from "./types";
 
-interface IntrinsicElements {
+interface Props {
   tasks: Array<task>;
 }
 
-function Table({ tasks }: IntrinsicElements) {
+const Table: React.FC<Props> = ({ tasks }) => {
   return (
     <div>
       <table className="table bg-light text-center">
@@ -30,6 +30,6 @@ function Table({ tasks }: IntrinsicElements) {
       </table>
     </div>
   );
-}
+};
 
 export default Table;
