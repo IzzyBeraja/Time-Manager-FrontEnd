@@ -1,44 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Touch Typing React App
 
-## Available Scripts
+This project aims to be a way to help people learn how to type more efficiently.
+It aims to support different keyboard layouts and allow for personalized tests.
+More importantly, it serves as a way for me to better understand how to utilize
+TypeScript with React.
 
-In the project directory, you can run:
+## Layout
 
-### `npm start`
+As a template, I will be using a layout of a similar website that I have used
+for over 10 hours and have learned how to type using the Colemak keyboard setup.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The name of the site is [KeyBr](keybr.com) and I would highly recommend you to
+check it out as I have done over 1000+ tests and have been able to improve my
+typing from 20wpm to an average of 75wpm.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Goals
 
-### `npm test`
+This project has the following goals and pieces that I would like to implement:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ ] Handle keypresses from the user
+- [ ] Vertical navigation bar
+- [ ] Statistics
+- [ ] Support different keyboard layouts
+- [ ] Usage of advertisements?
+- [ ] High scores
+- [ ] Customized tests
+- [ ] Markdown for pages with text
+- [ ] Animations of keyboard comparisons
 
-### `npm run build`
+And much more!
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is just to have fun and to get a better feel for TypeScript and to
+practice. I will be adding a backend at some point to store High Scores and
+potentially handle multiplayer but that wouldn't be for a little while!
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you like what I'm doing here or have any questions for me, you can best reach
+me at the email supplied on [My Github Account](https://github.com/IzzyBeraja).
+I will be updating this very often over the next couple weeks.
