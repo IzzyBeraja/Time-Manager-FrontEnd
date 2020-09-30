@@ -2,7 +2,33 @@ import React from "react";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="nav flex-column sticky-top">
+      <a className="nav-link mx-auto" href="/account">
+        Izzy Beraja
+      </a>
+      <a className="nav-link" href="/">
+        <i className="fas fa-keyboard mr-2" />
+        Practice
+      </a>
+      <a className="nav-link" href="/profile">
+        <i className="fas fa-chart-bar mr-2" />
+        Profile
+      </a>
+      <a className="nav-link" href="/help">
+        <i className="fas fa-question-circle mr-2" />
+        Help
+      </a>
+      <a className="nav-link" href="/highscores">
+        <i className="fas fa-trophy mr-2" />
+        High Scores
+      </a>
+      <a className="nav-link" href="/layouts">
+        <i className="fas fa-palette mr-2" />
+        Layouts
+      </a>
+    </nav>
+
+    /*     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
         Timer App
       </a>
@@ -30,7 +56,7 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       </div>
-    </nav>
+    </nav> */
   );
 };
 
