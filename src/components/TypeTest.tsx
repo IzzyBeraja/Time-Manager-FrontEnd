@@ -14,7 +14,7 @@ const TypeTest: React.FC<Props> = () => {
 
   return (
     <>
-      <TestStats />
+      <TestStats speed={speed} errors={errors} score={score} />
       <Lesson />
       <Settings />
       <Test />
