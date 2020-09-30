@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import TimerMenu from "./components/TimerMenu";
+import TypeTest from "./components/TypeTest";
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <Navbar />
-      <TimerMenu />
-    </React.Fragment>
+      <TypeTest />
+    </>
   );
 };
 

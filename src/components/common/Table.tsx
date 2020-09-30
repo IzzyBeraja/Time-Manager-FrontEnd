@@ -2,7 +2,7 @@ import React from "react";
 import { Task } from "./types";
 
 interface Props {
-  tasks: Array<Task>;
+  tasks: Task[];
   action?: "ease" | "ease-out" | "ease-in";
 }
 
@@ -10,7 +10,6 @@ const Table: React.FC<Props> = ({ tasks, action }) => {
   return (
     <>
       <table className="table bg-light text-center">
-        <h1>{action || "empty"}</h1>
         <thead className="thead-dark">
           <tr>
             <th>Job</th>
