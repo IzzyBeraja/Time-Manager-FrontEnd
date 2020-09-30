@@ -8,13 +8,13 @@ interface Props {
 
 const TestStats: React.FC<Props> = ({ speed, errors, score }) => {
   return (
-    <div className="container">
-      <div className="row mx-auto">
+    <div>
+      <div className="row">
         <div className="col-lg">Speed: {speed}</div>
         <div className="col-lg">Errors: {errors}</div>
         <div className="col-lg">Score: {score}</div>
       </div>
-      <div className="row mx-auto">
+      <div className="row">
         <div className="col-lg">Gain: </div>
         <div className="col-lg">Gain:</div>
         <div className="col-lg">Gain:</div>
