@@ -12,6 +12,18 @@ const TypeTest: React.FC<Props> = () => {
   const [errors, setErrors] = useState(0);
   const [score, setScore] = useState(0);
 
+  const handleFullscreen = () => {
+    console.log("Fullscreen?");
+  };
+
+  const handleDarkMode = () => {
+    console.log("Dark mode?");
+  };
+
+  const handleSettings = () => {
+    console.log("Settings?");
+  };
+
   return (
     <>
       <div className="flex-container">
@@ -20,7 +32,11 @@ const TypeTest: React.FC<Props> = () => {
             <TestStats speed={speed} errors={errors} score={score} />
           </div>
           <div className="col-4 mx-auto">
-            <Settings />
+            <Settings
+              onFullscreen={handleFullscreen}
+              onDarkModeToggle={handleDarkMode}
+              onSettingsClicked={handleSettings}
+            />
           </div>
         </div>
       </div>
