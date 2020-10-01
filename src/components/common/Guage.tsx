@@ -13,6 +13,12 @@ const Guage: React.FC<Props> = ({
   secondaryLabel,
   secondaryValue,
 }) => {
+  const color: (value: number) => string = value => {
+    if (value > 0) return "text-success";
+    if (value < 0) return "text-danger";
+    return "";
+  };
+
   return (
     // TODO: Learn some CSS and get the styling out of here
     <>
@@ -20,7 +26,7 @@ const Guage: React.FC<Props> = ({
         className="d-flex"
         style={{ justifyContent: "space-between", alignItems: "flex-end" }}
       >
-        <p className="my-0">{primaryLabel}</p>
+        <p>{primaryLabel}</p>
         <h3 className="my-0">{primaryValue}</h3>
       </div>
 
@@ -28,8 +34,8 @@ const Guage: React.FC<Props> = ({
         className="d-flex"
         style={{ justifyContent: "space-between", alignItems: "flex-end" }}
       >
-        <p className="my-0">{secondaryLabel}</p>
-        <p className="my-0">{secondaryValue}</p>
+        <p>{secondaryLabel}</p>
+        <p className={color(secondaryValue)}>{secondaryValue}</p>
       </div>
     </>
   );

@@ -33,9 +33,9 @@ const TypeTest: React.FC = () => {
             speed={speed}
             errors={errors}
             score={score}
-            speedGain={0}
+            speedGain={-1.5}
             errorsGain={0}
-            scoreGain={0}
+            scoreGain={1.5}
           />
         </div>
         <div className="col-4">
