@@ -25,6 +25,12 @@ const TypeTest: React.FC = () => {
     setScore(score + 100);
   };
 
+  const keySet = [
+    { letter: "A", rating: speed },
+    { letter: "B", rating: errors },
+    { letter: "C", rating: 0 },
+  ];
+
   return (
     <div>
       <div className="row justify-content-between">
@@ -46,7 +52,7 @@ const TypeTest: React.FC = () => {
           />
         </div>
       </div>
-      <Lesson />
+      <Lesson keySet={keySet} />
       <Test />
       <TestVisual />
     </div>
