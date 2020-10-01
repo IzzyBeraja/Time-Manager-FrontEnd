@@ -3,6 +3,7 @@ import ColorBox from "./common/ColorBox";
 
 interface Props {
   keySet: Key[];
+  currentKey: string;
 }
 
 interface Key {
@@ -10,14 +11,21 @@ interface Key {
   rating: number;
 }
 
-const Lesson: React.FC<Props> = ({ keySet }) => {
+const Lesson: React.FC<Props> = ({ keySet, currentKey }) => {
   return (
     <div>
-      Lesson's key set:
-      {keySet.map(({ letter, rating }) => (
-        <ColorBox letter={letter} rating={rating} />
-      ))}
-      <p>Current Key: </p>
+      <div className="row">
+        <div className="col-2">Lesson's key set:</div>
+        <div className="col">
+          {keySet.map(({ letter, rating }) => (
+            <ColorBox letter={letter} rating={rating} />
+          ))}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-2">Current Key: </div>
+        <div className="col">{currentKey}</div>
+      </div>
     </div>
   );
 };
