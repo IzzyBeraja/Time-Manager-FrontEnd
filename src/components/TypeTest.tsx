@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
-import Test, { Results } from "./Test";
+import Test from "./Test";
 import TestStats from "./TestStats";
 import TestVisual from "./TestVisual";
 
@@ -10,6 +10,16 @@ const TypeTest: React.FC = () => {
   const [speed, setSpeed] = useState(0);
   const [errors, setErrors] = useState(0);
   const [score, setScore] = useState(0);
+  const [currentPos, setCurrentPos] = useState(0);
+  const [answers, setAnswers] = useState("");
+  const [startTime, setStartTime] = useState(Date.now());
+
+  const keySet = getKeySet();
+  const text = "This is a test.";
+
+  useEffect(() => {
+    if (currentPos === text.length) handleTestFinish();
+  });
 
   const handleFullscreen = () => {
     console.log("Fullscreen?");
@@ -26,13 +36,27 @@ const TypeTest: React.FC = () => {
     setScore(score + 100);
   };
 
-  const handleTestFinish: (results: Results) => void = results => {
-    console.log(results);
+  const handleTestPlay = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (
+      currentPos === text.length ||
+      e.altKey ||
+      e.ctrlKey ||
+      e.key === "Shift"
+    )
+      return;
+    if (answers.length === 0) setStartTime(Date.now());
+    if (text[currentPos] === e.key) {
+      if (answers.length === currentPos) setAnswers(answers + "+");
+      setCurrentPos(currentPos + 1);
+    } else {
+      if (answers.length === currentPos) setAnswers(answers + "-");
+    }
+    console.log(currentPos, text.length);
   };
 
-  const keySet = getKeySet();
-
-  const text = "Marry";
+  const handleTestFinish = () => {
+    console.log(answers, (Date.now() - startTime) / 1000, text);
+  };
 
   return (
     <div>
@@ -56,7 +80,7 @@ const TypeTest: React.FC = () => {
         </div>
       </div>
       <Lesson keySet={keySet} currentKey={"No Key"} />
-      <Test text={text} onTestFinish={handleTestFinish} />
+      <Test text={text} handleKeyDown={handleTestPlay} />
       <TestVisual />
     </div>
   );
