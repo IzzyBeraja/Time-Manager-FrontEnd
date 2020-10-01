@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
-import Test from "./Test";
+import Test, { Results } from "./Test";
 import TestStats from "./TestStats";
 import TestVisual from "./TestVisual";
 
@@ -26,7 +26,13 @@ const TypeTest: React.FC = () => {
     setScore(score + 100);
   };
 
+  const handleTestFinish: (results: Results) => void = results => {
+    console.log(results);
+  };
+
   const keySet = getKeySet();
+
+  const text = "Marry";
 
   return (
     <div>
@@ -50,7 +56,7 @@ const TypeTest: React.FC = () => {
         </div>
       </div>
       <Lesson keySet={keySet} currentKey={"No Key"} />
-      <Test />
+      <Test text={text} onTestFinish={handleTestFinish} />
       <TestVisual />
     </div>
   );
