@@ -27,8 +27,8 @@ const TypeTest: React.FC = () => {
 
   return (
     <div>
-      <div className="row">
-        <div className="col">
+      <div className="row justify-content-between">
+        <div className="col-6">
           <TestStats
             speed={speed}
             errors={errors}
