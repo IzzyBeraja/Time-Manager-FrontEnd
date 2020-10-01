@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
 import Test from "./Test";
@@ -25,11 +26,7 @@ const TypeTest: React.FC = () => {
     setScore(score + 100);
   };
 
-  const keySet = [
-    { letter: "A", rating: speed },
-    { letter: "B", rating: errors },
-    { letter: "C", rating: 0 },
-  ];
+  const keySet = getKeySet();
 
   return (
     <div>
@@ -52,7 +49,7 @@ const TypeTest: React.FC = () => {
           />
         </div>
       </div>
-      <Lesson keySet={keySet} />
+      <Lesson keySet={keySet} currentKey={"No Key"} />
       <Test />
       <TestVisual />
     </div>
