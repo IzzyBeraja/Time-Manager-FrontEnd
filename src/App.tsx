@@ -5,7 +5,7 @@ import TypeTest from "./components/TypeTest";
 
 const App: React.FC = () => {
   return (
-    <div className="my-2">
+    <div className="flex-container my-2 mx-3">
       <div className="row">
         <div className="col">
           <TypeTest />

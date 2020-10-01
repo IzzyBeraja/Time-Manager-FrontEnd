@@ -12,21 +12,31 @@ const TypeTest: React.FC = () => {
 
   const handleFullscreen = () => {
     console.log("Fullscreen?");
+    setSpeed(speed + 1);
   };
 
   const handleDarkMode = () => {
     console.log("Dark mode?");
+    setErrors(errors + 2);
   };
 
   const handleSettings = () => {
     console.log("Settings?");
+    setScore(score + 100);
   };
 
   return (
-    <div className="mx-2">
+    <div>
       <div className="row">
         <div className="col">
-          <TestStats speed={speed} errors={errors} score={score} />
+          <TestStats
+            speed={speed}
+            errors={errors}
+            score={score}
+            speedGain={0}
+            errorsGain={0}
+            scoreGain={0}
+          />
         </div>
         <div className="col-4">
           <Settings
