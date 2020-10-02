@@ -18,8 +18,8 @@ typing from 20wpm to an average of 75wpm.
 
 This project has the following goals and pieces that I would like to implement:
 
-- [ ] Handle keypresses from the user
-- [ ] Vertical navigation bar
+- [x] Handle keypresses from the user
+- [x] Vertical navigation bar
 - [ ] Statistics
 - [ ] Support different keyboard layouts
 - [ ] Usage of advertisements?
