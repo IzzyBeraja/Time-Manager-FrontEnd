@@ -13,9 +13,8 @@ const TypeTest: React.FC = () => {
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState("");
   const [startTime, setStartTime] = useState(Date.now());
-
-  const keySet = getKeySet();
-  const text = "This is a test.";
+  const [keySet, setKeySet] = useState(getKeySet());
+  const [text, setText] = useState("This is a test.");
 
   useEffect(() => {
     if (currentPos === text.length) handleTestFinish();
@@ -55,6 +54,10 @@ const TypeTest: React.FC = () => {
   };
 
   const handleTestFinish = () => {
+    setKeySet(getKeySet());
+    setText("This is the second test.");
+    setCurrentPos(0);
+    setAnswers("");
     console.log(answers, (Date.now() - startTime) / 1000, text);
   };
 
@@ -80,7 +83,7 @@ const TypeTest: React.FC = () => {
         </div>
       </div>
       <Lesson keySet={keySet} currentKey={"No Key"} />
-      <Test text={text} handleKeyDown={handleTestPlay} />
+      <Test text={text} answers={answers} handleKeyDown={handleTestPlay} />
       <TestVisual />
     </div>
   );
