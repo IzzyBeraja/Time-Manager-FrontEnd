@@ -50,7 +50,6 @@ const TypeTest: React.FC = () => {
     } else {
       if (answers.length === currentPos) setAnswers(answers + "-");
     }
-    console.log(currentPos, text.length);
   };
 
   const handleTestFinish = () => {
