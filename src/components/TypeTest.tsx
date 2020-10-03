@@ -3,13 +3,16 @@ import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
 import Test, { answerTypes } from "./Test";
-import TestStats from "./TestStats";
+import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
 
 const TypeTest: React.FC = () => {
   const [speed, setSpeed] = useState(0);
   const [errors, setErrors] = useState(0);
   const [score, setScore] = useState(0);
+  const [speedGain, setSpeedGain] = useState(0);
+  const [errorsGain, setErrorsGain] = useState(0);
+  const [scoreGain, setScoreGain] = useState(0);
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState<answerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
@@ -73,7 +76,7 @@ const TypeTest: React.FC = () => {
     const wrongAnswers = answers.filter(a => a === "-").length;
     const rightAnswers = text.length - wrongAnswers;
     const wpm = text.length / avgWordLength / time;
-    const score = rightAnswers * 20 - wrongAnswers * 20;
+    const runScore = rightAnswers * 20 - wrongAnswers * 20;
 
     console.log([
       { "Text Length": text.length },
@@ -82,12 +85,16 @@ const TypeTest: React.FC = () => {
       { Time: `${(time * 60).toFixed(3)}s` },
       { WPM: wpm.toFixed(3) },
       { Errors: wrongAnswers },
-      { Score: score },
+      { Score: runScore },
     ]);
 
     setSpeed(wpm);
     setErrors(wrongAnswers);
-    setScore(score);
+    setScore(runScore);
+    setSpeedGain(wpm - speed);
+    setErrorsGain(wrongAnswers - errors);
+    setScoreGain(runScore - score);
+
     setKeySet(getKeySet());
     setText("This is the next test.");
     setCurrentPos(0);
@@ -98,13 +105,19 @@ const TypeTest: React.FC = () => {
     <div>
       <div className="row justify-content-between">
         <div className="col-6">
-          <TestStats
-            speed={speed.toFixed(1)}
-            errors={errors.toFixed(0)}
-            score={score.toFixed(0)}
-            speedGain={"-1.50"}
-            errorsGain={"+1.50"}
-            scoreGain={"-1.50"}
+          <RecentTestStats
+            speedLabel={"Speed: "}
+            speed={speed}
+            errorsLabel={"Errors: "}
+            errors={errors}
+            scoreLabel={"Score: "}
+            score={score}
+            speedGainLabel={"Gain: "}
+            speedGain={speedGain}
+            errorsGainLabel={"Gain: "}
+            errorsGain={errorsGain}
+            scoreGainLabel={"Gain: "}
+            scoreGain={scoreGain}
           />
         </div>
         <div className="col-4">
