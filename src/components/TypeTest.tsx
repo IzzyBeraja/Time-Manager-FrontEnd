@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
-import Test from "./Test";
+import Test, { answerTypes } from "./Test";
 import TestStats from "./TestStats";
 import TestVisual from "./TestVisual";
 
@@ -11,7 +11,7 @@ const TypeTest: React.FC = () => {
   const [errors, setErrors] = useState(0);
   const [score, setScore] = useState(0);
   const [currentPos, setCurrentPos] = useState(0);
-  const [answers, setAnswers] = useState("");
+  const [answers, setAnswers] = useState<answerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
   const [keySet, setKeySet] = useState(getKeySet());
   const [text, setText] = useState("This is a test.");
@@ -43,21 +43,31 @@ const TypeTest: React.FC = () => {
       e.key === "Shift"
     )
       return;
+    const response = [...answers];
     if (answers.length === 0) setStartTime(Date.now());
     if (text[currentPos] === e.key) {
-      if (answers.length === currentPos) setAnswers(answers + "+");
+      response.push("+");
+      if (answers.length === currentPos) setAnswers(response);
       setCurrentPos(currentPos + 1);
     } else {
-      if (answers.length === currentPos) setAnswers(answers + "-");
+      response.push("-");
+      if (answers.length === currentPos) setAnswers(response);
     }
   };
 
   const handleTestFinish = () => {
+    const time = (Date.now() - startTime) / (1000 * 60);
+    const avgWordLength = 5;
+    const wrongAnswers = answers.filter(a => a === "-").length;
+    const rightAnswers = text.length - wrongAnswers;
+    setSpeed(text.length / avgWordLength / time);
+    setErrors(wrongAnswers);
+    setScore(rightAnswers * 20 - wrongAnswers * 20);
     setKeySet(getKeySet());
-    setText("This is the second test.");
+    setText('"What are you doing?"');
     setCurrentPos(0);
-    setAnswers("");
-    console.log(answers, (Date.now() - startTime) / 1000, text);
+    setAnswers([]);
+    console.log(answers, time, text);
   };
 
   return (
@@ -65,12 +75,12 @@ const TypeTest: React.FC = () => {
       <div className="row justify-content-between">
         <div className="col-6">
           <TestStats
-            speed={speed}
-            errors={errors}
-            score={score}
-            speedGain={-1.5}
-            errorsGain={0}
-            scoreGain={1.5}
+            speed={speed.toFixed(1)}
+            errors={errors.toFixed(0)}
+            score={score.toFixed(0)}
+            speedGain={"-1.50"}
+            errorsGain={"+1.50"}
+            scoreGain={"-1.50"}
           />
         </div>
         <div className="col-4">

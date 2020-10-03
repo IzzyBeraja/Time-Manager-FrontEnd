@@ -2,9 +2,9 @@ import React from "react";
 
 interface Props {
   primaryLabel: string;
-  primaryValue: number;
+  primaryValue: string;
   secondaryLabel: string;
-  secondaryValue: number;
+  secondaryValue: string;
 }
 
 const Guage: React.FC<Props> = ({
@@ -18,6 +18,8 @@ const Guage: React.FC<Props> = ({
     if (value < 0) return "text-danger";
     return "";
   };
+
+  const secondaryValueAsNumber = Number(secondaryValue);
 
   return (
     // TODO: Learn some CSS and get the styling out of here
@@ -35,7 +37,7 @@ const Guage: React.FC<Props> = ({
         style={{ justifyContent: "space-between", alignItems: "flex-end" }}
       >
         <p>{secondaryLabel}</p>
-        <p className={color(secondaryValue)}>{secondaryValue}</p>
+        <p className={color(secondaryValueAsNumber)}>{secondaryValue}</p>
       </div>
     </>
   );

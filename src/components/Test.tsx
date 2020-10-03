@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from "react";
 
+export type answerTypes = "+" | "-";
+
 interface Props {
   text: string;
-  answers: string;
+  answers: answerTypes[];
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Test: React.FC<Props> = ({ text, answers, handleKeyDown }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null!);
   const letters = text.split("");
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const Test: React.FC<Props> = ({ text, answers, handleKeyDown }) => {
         ref={inputRef}
       />
       <div
-        className="container py-3 text-center"
+        className="container border py-3 text-center"
         onClick={() => inputRef.current?.focus()}
       >
         {letters.map((l, index) => colorLetter(l, index))}

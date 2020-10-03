@@ -2,12 +2,12 @@ import React from "react";
 import Guage from "./common/Guage";
 
 interface Props {
-  speed: number;
-  speedGain: number;
-  errors: number;
-  errorsGain: number;
-  score: number;
-  scoreGain: number;
+  speed: string;
+  speedGain: string;
+  errors: string;
+  errorsGain: string;
+  score: string;
+  scoreGain: string;
 }
 
 const TestStats: React.FC<Props> = ({
