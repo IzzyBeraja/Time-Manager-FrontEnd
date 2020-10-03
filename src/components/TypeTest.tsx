@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
-import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
 import Test, { answerTypes } from "./Test";
 import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
 
-const TypeTest: React.FC = () => {
+interface Props {
+  text: string;
+  keySet: { letter: string; rating: number }[];
+  onTestFinish: () => void;
+}
+
+const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
   const [speed, setSpeed] = useState(0);
   const [errors, setErrors] = useState(0);
   const [score, setScore] = useState(0);
@@ -16,14 +21,15 @@ const TypeTest: React.FC = () => {
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState<answerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
-  const [keySet, setKeySet] = useState(getKeySet());
-  const [text, setText] = useState("This is a test.");
 
   //* This is a ref to the invisible test input
   const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    if (currentPos === text.length) handleTestFinish();
+    if (currentPos === text.length) {
+      testFinish();
+      onTestFinish();
+    }
   });
 
   const reset = () => {
@@ -70,7 +76,7 @@ const TypeTest: React.FC = () => {
     }
   };
 
-  const handleTestFinish = () => {
+  const testFinish = () => {
     const time = (Date.now() - startTime) / (1000 * 60);
     const avgWordLength = 5;
     const wrongAnswers = answers.filter(a => a === "-").length;
@@ -94,9 +100,6 @@ const TypeTest: React.FC = () => {
     setSpeedGain(wpm - speed);
     setErrorsGain(wrongAnswers - errors);
     setScoreGain(runScore - score);
-
-    setKeySet(getKeySet());
-    setText("This is the next test.");
     setCurrentPos(0);
     setAnswers([]);
   };
