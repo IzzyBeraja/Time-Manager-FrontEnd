@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export type answerTypes = "+" | "-";
 
@@ -19,11 +19,13 @@ const Test: React.FC<Props> = ({
   handleKeyDown,
   handleBlur,
 }) => {
-  const letters = text.split("");
+  const [active, setActive] = useState(false);
 
+  const letters = text.split("");
   const colorLetter = (letter: string, index: number) => {
     let color = "";
-    if (index === currentPos) color = "bg-dark text-light";
+    if (!active) color = "text-muted";
+    else if (index === currentPos) color = "bg-dark text-light";
     else if (index < answers.length)
       color = answers[index] === "+" ? "text-success" : "text-danger";
     return (
@@ -45,11 +47,17 @@ const Test: React.FC<Props> = ({
         }}
         onKeyDown={handleKeyDown}
         ref={inputRef}
-        onBlur={handleBlur}
+        onBlur={data => {
+          handleBlur(data);
+          setActive(false);
+        }}
       />
       <div
         className="container border py-3 text-center"
-        onClick={() => inputRef.current?.focus()}
+        onClick={() => {
+          inputRef.current?.focus();
+          setActive(true);
+        }}
       >
         {letters.map((l, index) => colorLetter(l, index))}
       </div>
