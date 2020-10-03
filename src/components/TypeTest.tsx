@@ -11,13 +11,29 @@ interface Props {
   onTestFinish: () => void;
 }
 
+interface Stats {
+  speed: number;
+  speedChange: number;
+  errors: number;
+  errorsChange: number;
+  score: number;
+  scoreChange: number;
+  time: number;
+  textLength: number;
+}
+
 const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
-  const [speed, setSpeed] = useState(0);
-  const [errors, setErrors] = useState(0);
-  const [score, setScore] = useState(0);
-  const [speedGain, setSpeedGain] = useState(0);
-  const [errorsGain, setErrorsGain] = useState(0);
-  const [scoreGain, setScoreGain] = useState(0);
+  const [stats, setStats] = useState<Stats>({
+    speed: 0,
+    speedChange: 0,
+    errors: 0,
+    errorsChange: 0,
+    score: 0,
+    scoreChange: 0,
+    time: 0,
+    textLength: text.length,
+  });
+
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState<answerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
@@ -39,17 +55,14 @@ const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
 
   const handleFullscreen = () => {
     console.log("Fullscreen?");
-    setSpeed(speed + 1);
   };
 
   const handleDarkMode = () => {
     console.log("Dark mode?");
-    setErrors(errors + 2);
   };
 
   const handleSettings = () => {
     console.log("Settings?");
-    setScore(score + 100);
   };
 
   const handleTestPlay = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -84,24 +97,21 @@ const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
     const wpm = text.length / avgWordLength / time;
     const runScore = rightAnswers * 20 - wrongAnswers * 20;
 
-    console.log([
-      { "Text Length": text.length },
-      { "Right Answers": rightAnswers },
-      { "Wrong Answers": wrongAnswers },
-      { Time: `${(time * 60).toFixed(3)}s` },
-      { WPM: wpm.toFixed(3) },
-      { Errors: wrongAnswers },
-      { Score: runScore },
-    ]);
+    const runStats: Stats = {
+      speed: wpm,
+      speedChange: wpm - stats.speed,
+      errors: wrongAnswers,
+      errorsChange: wrongAnswers - stats.errors,
+      score: runScore,
+      scoreChange: runScore - stats.score,
+      time: time * 60,
+      textLength: text.length,
+    };
 
-    setSpeed(wpm);
-    setErrors(wrongAnswers);
-    setScore(runScore);
-    setSpeedGain(wpm - speed);
-    setErrorsGain(wrongAnswers - errors);
-    setScoreGain(runScore - score);
-    setCurrentPos(0);
-    setAnswers([]);
+    console.log(runStats);
+
+    setStats(runStats);
+    reset();
   };
 
   return (
@@ -110,17 +120,17 @@ const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
         <div className="col-6">
           <RecentTestStats
             speedLabel={"Speed: "}
-            speed={speed}
+            speed={stats.speed}
             errorsLabel={"Errors: "}
-            errors={errors}
+            errors={stats.errors}
             scoreLabel={"Score: "}
-            score={score}
+            score={stats.score}
             speedGainLabel={"Gain: "}
-            speedGain={speedGain}
+            speedGain={stats.speedChange}
             errorsGainLabel={"Gain: "}
-            errorsGain={errorsGain}
+            errorsGain={stats.errorsChange}
             scoreGainLabel={"Gain: "}
-            scoreGain={scoreGain}
+            scoreGain={stats.scoreChange}
           />
         </div>
         <div className="col-4">
