@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { getKeySet } from "../keysets/colemak";
 import Lesson from "./Lesson";
 import Settings from "./Settings";
@@ -16,9 +16,17 @@ const TypeTest: React.FC = () => {
   const [keySet, setKeySet] = useState(getKeySet());
   const [text, setText] = useState("This is a test.");
 
+  //* This is a ref to the invisible test input
+  const inputRef = useRef<HTMLInputElement>(null!);
+
   useEffect(() => {
     if (currentPos === text.length) handleTestFinish();
   });
+
+  const reset = () => {
+    setCurrentPos(0);
+    setAnswers([]);
+  };
 
   const handleFullscreen = () => {
     console.log("Fullscreen?");
@@ -43,11 +51,15 @@ const TypeTest: React.FC = () => {
       e.key === "Shift"
     )
       return;
+    if (e.key === "Escape") return reset();
     const response = [...answers];
     if (answers.length === 0) setStartTime(Date.now());
     if (text[currentPos] === e.key) {
-      response.push("+");
-      if (answers.length === currentPos) setAnswers(response);
+      // Correct answer on first try
+      if (answers.length === currentPos) {
+        response.push("+");
+        setAnswers(response);
+      }
       setCurrentPos(currentPos + 1);
     } else {
       response.push("-");
@@ -60,14 +72,26 @@ const TypeTest: React.FC = () => {
     const avgWordLength = 5;
     const wrongAnswers = answers.filter(a => a === "-").length;
     const rightAnswers = text.length - wrongAnswers;
-    setSpeed(text.length / avgWordLength / time);
+    const wpm = text.length / avgWordLength / time;
+    const score = rightAnswers * 20 - wrongAnswers * 20;
+
+    console.log([
+      { "Text Length": text.length },
+      { "Right Answers": rightAnswers },
+      { "Wrong Answers": wrongAnswers },
+      { Time: `${(time * 60).toFixed(3)}s` },
+      { WPM: wpm.toFixed(3) },
+      { Errors: wrongAnswers },
+      { Score: score },
+    ]);
+
+    setSpeed(wpm);
     setErrors(wrongAnswers);
-    setScore(rightAnswers * 20 - wrongAnswers * 20);
+    setScore(score);
     setKeySet(getKeySet());
-    setText('"What are you doing?"');
+    setText("This is the next test.");
     setCurrentPos(0);
     setAnswers([]);
-    console.log(answers, time, text);
   };
 
   return (
@@ -92,7 +116,14 @@ const TypeTest: React.FC = () => {
         </div>
       </div>
       <Lesson keySet={keySet} currentKey={"No Key"} />
-      <Test text={text} answers={answers} handleKeyDown={handleTestPlay} />
+      <Test
+        inputRef={inputRef}
+        text={text}
+        answers={answers}
+        currentPos={currentPos}
+        handleKeyDown={handleTestPlay}
+        handleBlur={reset}
+      />
       <TestVisual />
     </div>
   );

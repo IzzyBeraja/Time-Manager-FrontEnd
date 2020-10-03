@@ -1,26 +1,31 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 export type answerTypes = "+" | "-";
 
 interface Props {
   text: string;
   answers: answerTypes[];
+  currentPos: number;
+  inputRef: React.MutableRefObject<HTMLInputElement>;
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Test: React.FC<Props> = ({ text, answers, handleKeyDown }) => {
-  const inputRef = useRef<HTMLInputElement>(null!);
+const Test: React.FC<Props> = ({
+  text,
+  answers,
+  currentPos,
+  inputRef,
+  handleKeyDown,
+  handleBlur,
+}) => {
   const letters = text.split("");
-
-  useEffect(() => {
-    inputRef?.current?.focus();
-  });
 
   const colorLetter = (letter: string, index: number) => {
     let color = "";
-    if (index < answers.length) {
+    if (index === currentPos) color = "bg-dark text-light";
+    else if (index < answers.length)
       color = answers[index] === "+" ? "text-success" : "text-danger";
-    }
     return (
       <span key={index} className={color}>
         {letter}
@@ -31,7 +36,7 @@ const Test: React.FC<Props> = ({ text, answers, handleKeyDown }) => {
   return (
     <>
       <input
-        className=""
+        id="input"
         style={{
           opacity: 0,
           cursor: "default",
@@ -40,6 +45,7 @@ const Test: React.FC<Props> = ({ text, answers, handleKeyDown }) => {
         }}
         onKeyDown={handleKeyDown}
         ref={inputRef}
+        onBlur={handleBlur}
       />
       <div
         className="container border py-3 text-center"
