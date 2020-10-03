@@ -8,10 +8,11 @@ import TestVisual from "./TestVisual";
 interface Props {
   text: string;
   keySet: { letter: string; rating: number }[];
-  onTestFinish: () => void;
+  stats: Stats;
+  onTestFinish: (stats: Stats) => void;
 }
 
-interface Stats {
+export interface Stats {
   speed: number;
   speedChange: number;
   errors: number;
@@ -22,18 +23,7 @@ interface Stats {
   textLength: number;
 }
 
-const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
-  const [stats, setStats] = useState<Stats>({
-    speed: 0,
-    speedChange: 0,
-    errors: 0,
-    errorsChange: 0,
-    score: 0,
-    scoreChange: 0,
-    time: 0,
-    textLength: text.length,
-  });
-
+const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState<answerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
@@ -42,10 +32,7 @@ const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
   const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    if (currentPos === text.length) {
-      testFinish();
-      onTestFinish();
-    }
+    if (currentPos === text.length) testFinish();
   });
 
   const reset = () => {
@@ -108,10 +95,8 @@ const TypeTest: React.FC<Props> = ({ text, keySet, onTestFinish }) => {
       textLength: text.length,
     };
 
-    console.log(runStats);
-
-    setStats(runStats);
     reset();
+    onTestFinish(runStats);
   };
 
   return (

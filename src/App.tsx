@@ -1,16 +1,28 @@
 import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import TypeTest from "./components/TypeTest";
+import TypeTest, { Stats } from "./components/TypeTest";
 import { getKeySet } from "./keysets/colemak";
 
 const App: React.FC = () => {
   const [text, setText] = useState("This is a test.");
   const [keySet, setKeySet] = useState(getKeySet());
+  const [stats, setStats] = useState<Stats>({
+    speed: 0,
+    speedChange: 0,
+    errors: 0,
+    errorsChange: 0,
+    score: 0,
+    scoreChange: 0,
+    time: 0,
+    textLength: text.length,
+  });
 
-  const handleTestFinish = () => {
+  const handleTestFinish = (stats: Stats) => {
+    setStats(stats);
     setText("This is another test.");
     setKeySet(getKeySet());
+    console.log(stats);
   };
 
   return (
@@ -20,6 +32,7 @@ const App: React.FC = () => {
           <TypeTest
             text={text}
             keySet={keySet}
+            stats={stats}
             onTestFinish={handleTestFinish}
           />
         </div>
