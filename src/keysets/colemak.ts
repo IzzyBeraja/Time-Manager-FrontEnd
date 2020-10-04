@@ -29,6 +29,6 @@ const keySet: string[] = [
 
 export function getKeySet() {
   return keySet.map(key => {
-    return { letter: key, rating: Math.random() * 101 };
+    return { letter: key, rating: Math.random() * 101, active: true };
   });
 }

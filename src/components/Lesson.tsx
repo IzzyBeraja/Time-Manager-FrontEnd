@@ -1,14 +1,9 @@
 import React from "react";
-import ColorBox from "./common/ColorBox";
+import ColorBox, { Key } from "./common/ColorBox";
 
 interface Props {
   keySet: Key[];
   currentKey: string;
-}
-
-interface Key {
-  letter: string;
-  rating: number;
 }
 
 /*
@@ -22,8 +17,8 @@ const Lesson: React.FC<Props> = ({ keySet, currentKey }) => {
       <div className="row">
         <div className="col-2">Lesson's key set:</div>
         <div className="col">
-          {keySet.map(({ letter, rating }) => (
-            <ColorBox key={letter} letter={letter} rating={rating} />
+          {keySet.map(keyVal => (
+            <ColorBox key={keyVal.letter} keyVal={keyVal} />
           ))}
         </div>
       </div>

@@ -4,10 +4,11 @@ import Settings from "./Settings";
 import Test, { answerTypes } from "./Test";
 import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
+import { Key } from "./common/ColorBox";
 
 interface Props {
   text: string;
-  keySet: { letter: string; rating: number }[];
+  keySet: Key[];
   stats: Stats;
   onTestFinish: (stats: Stats) => void;
 }
