@@ -51,14 +51,23 @@ const Test: React.FC<Props> = ({
   };
 
   return (
-    <>
+    <div
+      className="d-flex justify-content-around border-bottom py-3"
+      onClick={() => {
+        inputRef.current?.focus();
+        setActive(true);
+      }}
+    >
       <input
         id="input"
+        autoComplete="off"
         style={{
           opacity: 0,
           cursor: "default",
           zIndex: -1,
           position: "absolute",
+          width: 0,
+          height: 0,
         }}
         onKeyDown={data => {
           handleKeyDown(data);
@@ -70,16 +79,10 @@ const Test: React.FC<Props> = ({
           setActive(false);
         }}
       />
-      <div
-        className="container border py-3 text-center"
-        onClick={() => {
-          inputRef.current?.focus();
-          setActive(true);
-        }}
-      >
+      <div className="code text-center">
         {letters.map((l, index) => colorLetter(l, index))}
       </div>
-    </>
+    </div>
   );
 };
 

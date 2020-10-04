@@ -101,9 +101,9 @@ const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
   };
 
   return (
-    <div>
-      <div className="row justify-content-between">
-        <div className="col-6">
+    <div className="mx-3 ">
+      <div className="row border-bottom mx-0 pb-2 justify-content-between">
+        <div className="col-6 p-0">
           <RecentTestStats
             speedLabel={"Speed: "}
             speed={stats.speed}
@@ -127,16 +127,20 @@ const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
           />
         </div>
       </div>
-      <Lesson keySet={keySet} currentKey={"No Key"} />
-      <Test
-        inputRef={inputRef}
-        text={text}
-        answers={answers}
-        currentPos={currentPos}
-        handleKeyDown={handleTestPlay}
-        handleBlur={reset}
-      />
-      <TestVisual />
+      <div className="border-bottom pb-2 pt-2">
+        <Lesson keySet={keySet} currentKey={"No Key"} />
+      </div>
+      <div>
+        <Test
+          inputRef={inputRef}
+          text={text}
+          answers={answers}
+          currentPos={currentPos}
+          handleKeyDown={handleTestPlay}
+          handleBlur={reset}
+        />
+        <TestVisual />
+      </div>
     </div>
   );
 };

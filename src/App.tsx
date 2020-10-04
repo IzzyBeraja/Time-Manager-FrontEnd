@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import "./App.css";
 import Help from "./components/Help";
 import HighScores from "./components/HighScores";
@@ -11,7 +16,7 @@ import Profile from "./components/Profile";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex-container my-2 mx-3">
+      <div className="flex-container ml-1 mr-3 mt-2">
         <div className="row">
           <div className="col">
             <Switch>
@@ -20,9 +25,10 @@ const App: React.FC = () => {
               <Route path="/Highscores" component={HighScores} />
               <Route path="/Layouts" component={Layouts} />
               <Route path="/" component={Practice} />
+              <Redirect exact to="/" />
             </Switch>
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <Navbar />
           </div>
         </div>

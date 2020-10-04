@@ -33,7 +33,7 @@ const Guage: React.FC<Props> = ({
         style={{ justifyContent: "space-between", alignItems: "flex-end" }}
       >
         <p>{primaryLabel}</p>
-        <h3 className="my-0">{primaryValue.toFixed(primaryPrecision)}</h3>
+        <h1 className="my-0">{primaryValue.toFixed(primaryPrecision)}</h1>
       </div>
 
       <div

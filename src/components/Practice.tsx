@@ -19,7 +19,7 @@ const Practice = () => {
   const handleTestFinish = (stats: Stats) => {
     setStats(stats);
     setText(
-      "I will weigh 180lbs by November 9th of 2021. I no longer want to be heavy. It hurts my self image and physically weighs me down. It's a stressor in my life. I want to be fit, lean, and full of energy instead of lethargic, rotund, and unhealthy. I will reach my goal by counting my calories every day and eating healthier options. I will only eat during meals and no longer drink alcohol. I believe in myself! I will be 180lbs by November 9th, 2021!"
+      "Now this is the story all about how, My life got flipped-turned upside down, And I'd like to take a minute, just sit right there, I'll tell you how I became the prince of a town called Bel Air."
     );
     setKeySet(getKeySet());
     console.log(stats);
