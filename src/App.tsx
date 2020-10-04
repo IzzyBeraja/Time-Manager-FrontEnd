@@ -10,10 +10,10 @@ import Profile from "./components/Profile";
 
 const App: React.FC = () => {
   return (
-    <div className="flex-container my-2 mx-3">
-      <div className="row">
-        <div className="col">
-          <Router>
+    <Router>
+      <div className="flex-container my-2 mx-3">
+        <div className="row">
+          <div className="col">
             <Switch>
               <Route path="/Profile" component={Profile} />
               <Route path="/Help" component={Help} />
@@ -21,13 +21,13 @@ const App: React.FC = () => {
               <Route path="/Layouts" component={Layouts} />
               <Route path="/" component={Practice} />
             </Switch>
-          </Router>
-        </div>
-        <div className="col-3">
-          <Navbar />
+          </div>
+          <div className="col-3">
+            <Navbar />
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 };
 

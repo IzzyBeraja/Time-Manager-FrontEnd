@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
     <nav className="nav flex-column sticky-top">
-      <a className="nav-link mx-auto" href="/account">
+      <Link className="nav-link mx-auto" to="/account">
         Izzy Beraja
-      </a>
-      <a className="nav-link" href="/">
+      </Link>
+      <Link className="nav-link" to="/">
         <i className="fas fa-keyboard mr-2" />
         Practice
-      </a>
-      <a className="nav-link" href="/profile">
+      </Link>
+      <Link className="nav-link" to="/profile">
         <i className="fas fa-chart-bar mr-2" />
         Profile
-      </a>
-      <a className="nav-link" href="/help">
+      </Link>
+      <Link className="nav-link" to="/help">
         <i className="fas fa-question-circle mr-2" />
         Help
-      </a>
-      <a className="nav-link" href="/highscores">
+      </Link>
+      <Link className="nav-link" to="/highscores">
         <i className="fas fa-trophy mr-2" />
         High Scores
-      </a>
-      <a className="nav-link" href="/layouts">
+      </Link>
+      <Link className="nav-link" to="/layouts">
         <i className="fas fa-palette mr-2" />
         Layouts
-      </a>
+      </Link>
     </nav>
 
     /*     <nav className="navbar navbar-expand-lg navbar-light bg-light">
