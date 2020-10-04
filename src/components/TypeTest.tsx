@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Lesson from "./Lesson";
-import Settings from "./Settings";
+import Options from "./Options";
 import Test, { answerTypes } from "./Test";
 import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
@@ -120,7 +120,7 @@ const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
           />
         </div>
         <div className="col-4">
-          <Settings
+          <Options
             onFullscreen={handleFullscreen}
             onDarkModeToggle={handleDarkMode}
             onSettingsClicked={handleSettings}

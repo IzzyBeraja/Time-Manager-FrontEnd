@@ -1,40 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Help from "./components/Help";
+import HighScores from "./components/HighScores";
+import Layouts from "./components/Layouts";
 import Navbar from "./components/Navbar";
-import TypeTest, { Stats } from "./components/TypeTest";
-import { getKeySet } from "./keysets/colemak";
+import Practice from "./components/Practice";
+import Profile from "./components/Profile";
 
 const App: React.FC = () => {
-  const [text, setText] = useState("This is a test.");
-  const [keySet, setKeySet] = useState(getKeySet());
-  const [stats, setStats] = useState<Stats>({
-    speed: 0,
-    speedChange: 0,
-    errors: 0,
-    errorsChange: 0,
-    score: 0,
-    scoreChange: 0,
-    time: 0,
-    textLength: text.length,
-  });
-
-  const handleTestFinish = (stats: Stats) => {
-    setStats(stats);
-    setText("This is another test.");
-    setKeySet(getKeySet());
-    console.log(stats);
-  };
-
   return (
     <div className="flex-container my-2 mx-3">
       <div className="row">
         <div className="col">
-          <TypeTest
-            text={text}
-            keySet={keySet}
-            stats={stats}
-            onTestFinish={handleTestFinish}
-          />
+          <Router>
+            <Switch>
+              <Route path="/Profile" component={Profile} />
+              <Route path="/Help" component={Help} />
+              <Route path="/Highscores" component={HighScores} />
+              <Route path="/Layouts" component={Layouts} />
+              <Route path="/" component={Practice} />
+            </Switch>
+          </Router>
         </div>
         <div className="col-3">
           <Navbar />
