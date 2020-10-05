@@ -6,7 +6,7 @@ import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
 import { Key } from "./common/ColorBox";
 
-import { answerTypes } from "../types";
+import { AnswerTypes, Stats } from "../types";
 
 interface Props {
   text: string;
@@ -15,20 +15,9 @@ interface Props {
   onTestFinish: (stats: Stats) => void;
 }
 
-export interface Stats {
-  speed: number;
-  speedChange: number;
-  errors: number;
-  errorsChange: number;
-  score: number;
-  scoreChange: number;
-  time: number;
-  textLength: number;
-}
-
 const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
   const [currentPos, setCurrentPos] = useState(0);
-  const [answers, setAnswers] = useState<answerTypes[]>([]);
+  const [answers, setAnswers] = useState<AnswerTypes[]>([]);
   const [startTime, setStartTime] = useState(Date.now());
 
   //* This is a ref to the invisible test input

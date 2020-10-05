@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { answerTypes } from "../types";
+
+import { AnswerTypes } from "../types";
 
 type Props = {
   text: string;
-  answers: answerTypes[];
+  answers: AnswerTypes[];
   currentPos: number;
   inputRef: React.MutableRefObject<HTMLInputElement>;
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;

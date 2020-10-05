@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { getKeySet } from "../keysets/colemak";
-import TypeTest, { Stats } from "./TypeTest";
+import TypeTest from "./TypeTest";
+
+import { Stats } from "../types";
 
 const Practice = () => {
   const [text, setText] = useState("This is a test of the software.");
