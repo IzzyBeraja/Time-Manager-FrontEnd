@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { answerTypes } from "../types";
 
-export type answerTypes = "+" | "-";
-
-interface Props {
+type Props = {
   text: string;
   answers: answerTypes[];
   currentPos: number;
   inputRef: React.MutableRefObject<HTMLInputElement>;
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
-}
+};
 
-const Test: React.FC<Props> = ({
+const Test = ({
   text,
   answers,
   currentPos,
   inputRef,
   handleKeyDown,
   handleBlur,
-}) => {
+}: Props) => {
   const defaultCursorStyle = "bg-dark text-light";
 
   const [active, setActive] = useState(false);
