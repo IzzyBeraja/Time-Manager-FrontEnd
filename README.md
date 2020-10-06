@@ -10,7 +10,7 @@ TypeScript with React.
 As a template, I will be using a layout of a similar website that I have used
 for over 10 hours and have learned how to type using the Colemak keyboard setup.
 
-The name of the site is [KeyBr](keybr.com) and I would highly recommend you to
+The name of the site is [KeyBr](www.keybr.com) and I would highly recommend you to
 check it out as I have done over 1000+ tests and have been able to improve my
 typing from 20wpm to an average of 75wpm.
 
