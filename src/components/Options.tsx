@@ -1,16 +1,16 @@
 import React from "react";
 
-interface Props {
+type Props = {
   onFullscreen: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   onDarkModeToggle: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   onSettingsClicked: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-}
+};
 
-const Options: React.FC<Props> = ({
+const Options = ({
   onFullscreen,
   onDarkModeToggle,
   onSettingsClicked,
-}) => {
+}: Props) => {
   return (
     <div className="d-flex justify-content-end align-items-center">
       <i

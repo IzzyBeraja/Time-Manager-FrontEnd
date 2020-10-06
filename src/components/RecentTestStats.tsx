@@ -1,7 +1,7 @@
 import React from "react";
 import Guage from "./common/Guage";
 
-interface Props {
+type Props = {
   speed: number;
   speedGain: number;
   errors: number;
@@ -14,9 +14,9 @@ interface Props {
   errorsGainLabel: string;
   scoreLabel: string;
   scoreGainLabel: string;
-}
+};
 
-const RecentTestStats: React.FC<Props> = ({
+const RecentTestStats = ({
   speed,
   speedLabel,
   errors,
@@ -29,7 +29,7 @@ const RecentTestStats: React.FC<Props> = ({
   errorsGainLabel,
   scoreGain,
   scoreGainLabel,
-}) => {
+}: Props) => {
   return (
     <div className="row">
       <div className="col">

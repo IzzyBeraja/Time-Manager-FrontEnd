@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {}
+type Props = {};
 
 const TestVisual = () => {
   return <div></div>;

@@ -1,17 +1,17 @@
 import React from "react";
 import ColorBox, { Key } from "./common/ColorBox";
 
-interface Props {
+type Props = {
   keySet: Key[];
   currentKey: string;
-}
+};
 
 /*
 >>  Use Sass variables to set up more columns and have better spacing?
 >>  https://getbootstrap.com/docs/4.1/layout/grid/#columns-and-gutters
 */
 
-const Lesson: React.FC<Props> = ({ keySet, currentKey }) => {
+const Lesson = ({ keySet, currentKey }: Props) => {
   return (
     <div>
       <div className="row">

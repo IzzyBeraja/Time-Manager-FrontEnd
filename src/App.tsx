@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar";
 import Practice from "./components/Practice";
 import Profile from "./components/Profile";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <div className="flex-container ml-1 mr-3 mt-2">

@@ -8,16 +8,16 @@ import { Key } from "./common/ColorBox";
 
 import { AnswerTypes, Stats } from "../types";
 
-interface Props {
+type Props = {
   text: string;
   keySet: Key[];
   stats: Stats;
   onTestFinish: (stats: Stats) => void;
-}
+};
 
-const TypeTest: React.FC<Props> = ({ text, keySet, stats, onTestFinish }) => {
+const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   const [currentPos, setCurrentPos] = useState(0);
-  const [answers, setAnswers] = useState<AnswerTypes[]>([]);
+  const [answers, setAnswers] = useState<Array<AnswerTypes>>([]);
   const [startTime, setStartTime] = useState(Date.now());
 
   //* This is a ref to the invisible test input
