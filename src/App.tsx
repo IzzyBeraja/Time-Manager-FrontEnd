@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Help from "./components/Help";
 import HighScores from "./components/HighScores";
 import Layouts from "./components/Layouts";
