@@ -10,3 +10,9 @@ export type Stats = {
   time: number;
   textLength: number;
 };
+
+export type Key = {
+  letter: string;
+  rating: number;
+  active: boolean;
+};

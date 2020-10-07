@@ -10,7 +10,7 @@ interface Props {
   reverseSecondaryColor?: boolean;
 }
 
-const Guage: React.FC<Props> = ({
+const Guage = ({
   primaryLabel,
   primaryValue,
   primaryPrecision,
@@ -18,7 +18,7 @@ const Guage: React.FC<Props> = ({
   secondaryValue,
   secondaryPrecision,
   reverseSecondaryColor,
-}) => {
+}: Props) => {
   const color: (value: number) => string = value => {
     if (value === 0) return "";
     const color = value > 0 ? !reverseSecondaryColor : reverseSecondaryColor;

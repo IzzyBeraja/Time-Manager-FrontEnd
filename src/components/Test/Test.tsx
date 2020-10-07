@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { AnswerTypes } from "../../types";
+import { AnswerTypes } from "types";
 
 type Props = {
   text: string;

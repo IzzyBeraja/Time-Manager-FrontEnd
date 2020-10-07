@@ -1,16 +1,11 @@
 import React from "react";
-
-export interface Key {
-  letter: string;
-  rating: number;
-  active: boolean;
-}
+import { Key } from "types";
 
 interface Props {
   keyVal: Key;
 }
 
-const ColorBox: React.FC<Props> = ({ keyVal }) => {
+const ColorBox = ({ keyVal }: Props) => {
   const { active, rating, letter } = keyVal;
   const color: (rating: number) => string = rating => {
     if (!active) return "rgb(220,220,220)";
