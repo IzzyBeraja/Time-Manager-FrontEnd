@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Lesson from "./Lesson";
 import Options from "./Options";
-import Test from "./Test";
+import Test from "./Test/Test";
 import RecentTestStats from "./RecentTestStats";
 import TestVisual from "./TestVisual";
 import { Key } from "./common/ColorBox";
