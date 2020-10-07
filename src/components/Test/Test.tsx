@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "./Test.scss";
 import { AnswerTypes } from "types";
 
 type Props = {
@@ -19,17 +19,14 @@ const Test = ({
   handleKeyDown,
   handleBlur,
 }: Props) => {
-  const defaultCursorStyle = "bg-dark text-light";
-
   const [active, setActive] = useState(false);
-  const [cursorStyle, setCursorStyle] = useState(defaultCursorStyle);
+  const [cursorStyle, setCursorStyle] = useState("");
 
   useEffect(() => {
     let timer =
       active &&
       setInterval(function () {
-        const newStyle = cursorStyle === "" ? defaultCursorStyle : "";
-        setCursorStyle(newStyle);
+        setCursorStyle(cursorStyle ? "" : "text-highlight");
       }, 400);
     return () => {
       if (timer) clearInterval(timer);
@@ -38,11 +35,11 @@ const Test = ({
 
   const letters = text.split("");
   const colorLetter = (letter: string, index: number) => {
-    let color = "";
-    if (!active) color = "text-muted";
+    let color = "text-active";
+    if (!active) color = "text-inactive";
     else if (index === currentPos) color = cursorStyle;
     else if (index < answers.length)
-      color = answers[index] === "+" ? "text-success" : "text-danger";
+      color = answers[index] === "+" ? "text-correct" : "text-wrong";
     return (
       <span key={index} className={color}>
         {letter}
@@ -52,7 +49,7 @@ const Test = ({
 
   return (
     <div
-      className="d-flex justify-content-around border-bottom py-3"
+      className="test-text"
       onClick={() => {
         inputRef.current?.focus();
         setActive(true);
@@ -61,17 +58,10 @@ const Test = ({
       <input
         id="input"
         autoComplete="off"
-        style={{
-          opacity: 0,
-          cursor: "default",
-          zIndex: -1,
-          position: "absolute",
-          width: 0,
-          height: 0,
-        }}
+        className="invisible-input"
         onKeyDown={data => {
           handleKeyDown(data);
-          setCursorStyle(defaultCursorStyle);
+          setCursorStyle("text-highlight");
         }}
         ref={inputRef}
         onBlur={data => {

@@ -1,0 +1,38 @@
+.test-text {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.invisible-input {
+  opacity: 0;
+  cursor: default;
+  z-index: -1;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+// >> Make these colors available to all members
+.text-inactive {
+  color: #818181;
+}
+
+.text-active {
+  color: #000000;
+}
+
+.text-highlight {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.text-correct {
+  color: #01c70b;
+}
+
+.text-wrong {
+  color: #c70404;
+}
