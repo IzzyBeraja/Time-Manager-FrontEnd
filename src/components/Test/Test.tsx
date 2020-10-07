@@ -69,7 +69,7 @@ const Test = ({
           setActive(false);
         }}
       />
-      <div className="code text-center">
+      <div className="text-center">
         {letters.map((l, index) => colorLetter(l, index))}
       </div>
     </div>
