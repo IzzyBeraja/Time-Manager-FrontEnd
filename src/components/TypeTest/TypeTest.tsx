@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import Lesson from "./Lesson";
-import Options from "./Options";
-import Test from "./Test/Test";
-import RecentTestStats from "./RecentTestStats";
-import TestVisual from "./TestVisual";
-import { Key } from "./common/ColorBox";
+import Lesson from "../Lesson/Lesson";
+import Options from "../Options/Options";
+import Test from "../Test/Test";
+import RecentTestStats from "../RecentTestStats/RecentTestStats";
+import TestVisual from "../TestVisual/TestVisual";
+import { Key } from "../common/ColorBox/ColorBox";
 
-import { AnswerTypes, Stats } from "../types";
+import { AnswerTypes, Stats } from "../../types";
 
 type Props = {
   text: string;

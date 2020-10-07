@@ -6,12 +6,12 @@ import {
   Switch,
 } from "react-router-dom";
 import "./App.scss";
-import Help from "./components/Help";
-import HighScores from "./components/HighScores";
-import Layouts from "./components/Layouts";
-import Navbar from "./components/Navbar";
-import Practice from "./components/Practice";
-import Profile from "./components/Profile";
+import Help from "./components/Help/Help";
+import HighScores from "./components/HighScores/HighScores";
+import Layouts from "./components/Layouts/Layouts";
+import Navbar from "./components/Navbar/Navbar";
+import Practice from "./components/Practice/Practice";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   return (

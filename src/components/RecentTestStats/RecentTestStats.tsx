@@ -1,5 +1,5 @@
 import React from "react";
-import Guage from "./common/Guage";
+import Guage from "../common/Guage/Guage";
 
 type Props = {
   speed: number;

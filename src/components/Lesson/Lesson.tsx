@@ -1,5 +1,5 @@
 import React from "react";
-import ColorBox, { Key } from "./common/ColorBox";
+import ColorBox, { Key } from "../common/ColorBox/ColorBox";
 
 type Props = {
   keySet: Key[];
