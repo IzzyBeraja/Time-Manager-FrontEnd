@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import "App.scss";
+import "sass/components/App.scss";
 import Help from "components/Help";
 import HighScores from "components/HighScores";
 import Layouts from "components/Layouts";
@@ -28,7 +28,7 @@ const App = () => {
               <Redirect exact to="/" />
             </Switch>
           </div>
-          <div className="col-2">
+          <div className="col-2  nav-col">
             <Navbar />
           </div>
         </div>

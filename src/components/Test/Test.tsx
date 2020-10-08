@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Test.scss";
+import "sass/components/Test.scss";
 import { AnswerTypes } from "types";
 
 type Props = {
-  text: string;
+  text: string[];
   answers: AnswerTypes[];
   currentPos: number;
   inputRef: React.MutableRefObject<HTMLInputElement>;
@@ -20,31 +20,25 @@ const Test = ({
   handleBlur,
 }: Props) => {
   const [active, setActive] = useState(false);
-  const [cursorStyle, setCursorStyle] = useState("");
+  const [cursor, setCursor] = useState(true);
 
   useEffect(() => {
-    let timer =
+    const timer =
       active &&
       setInterval(function () {
-        setCursorStyle(cursorStyle ? "" : "text-highlight");
+        setCursor(!cursor);
       }, 400);
     return () => {
       if (timer) clearInterval(timer);
     };
   });
 
-  const letters = text.split("");
-  const colorLetter = (letter: string, index: number) => {
-    let color = "text-active";
-    if (!active) color = "text-inactive";
-    else if (index === currentPos) color = cursorStyle;
-    else if (index < answers.length)
-      color = answers[index] === "+" ? "text-correct" : "text-wrong";
-    return (
-      <span key={index} className={color}>
-        {letter}
-      </span>
-    );
+  const letterColor = (index: number) => {
+    if (!active) return "text-inactive";
+    if (index === currentPos && cursor) return "text-highlight";
+    if (index < answers.length)
+      return answers[index] === "+" ? "text-correct" : "text-wrong";
+    return "text-active";
   };
 
   return (
@@ -61,7 +55,7 @@ const Test = ({
         className="invisible-input"
         onKeyDown={data => {
           handleKeyDown(data);
-          setCursorStyle("text-highlight");
+          setCursor(true);
         }}
         ref={inputRef}
         onBlur={data => {
@@ -70,7 +64,11 @@ const Test = ({
         }}
       />
       <div className="text-center">
-        {letters.map((l, index) => colorLetter(l, index))}
+        {text.map((l, index) => (
+          <span key={index} className={letterColor(index)}>
+            {l}
+          </span>
+        ))}
       </div>
     </div>
   );

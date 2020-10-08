@@ -122,7 +122,7 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
       <div>
         <Test
           inputRef={inputRef}
-          text={text}
+          text={[...text]}
           answers={answers}
           currentPos={currentPos}
           handleKeyDown={handleTestPlay}

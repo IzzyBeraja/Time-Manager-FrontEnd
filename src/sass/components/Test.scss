@@ -1,41 +1,51 @@
+@import "sass/abstracts/_variables.scss";
+
 .test-text {
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid $muted;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+%typing-text {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   font-size: 1.5rem;
 }
 
 .invisible-input {
-  opacity: 0;
-  cursor: default;
-  z-index: -1;
   position: absolute;
+  cursor: default;
+  opacity: 0;
+  z-index: -1;
   width: 0;
   height: 0;
 }
 
 // >> Make these colors available to all members
 .text-inactive {
-  color: #818181;
+  @extend %typing-text;
+  color: $grey;
 }
 
 .text-active {
-  color: #000000;
+  @extend %typing-text;
+  color: $black;
 }
 
 .text-highlight {
-  background-color: #000000;
-  color: #ffffff;
+  @extend %typing-text;
+  background-color: $black;
+  color: $white;
 }
 
 .text-correct {
-  color: #01c70b;
+  @extend %typing-text;
+  color: $green;
 }
 
 .text-wrong {
-  color: #c70404;
+  @extend %typing-text;
+  color: $red;
 }
