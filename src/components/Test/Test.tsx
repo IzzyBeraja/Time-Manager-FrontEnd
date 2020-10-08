@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "sass/components/Test.scss";
+import "scss/components/Test.scss";
 import { AnswerTypes } from "types";
 
 type Props = {
@@ -43,7 +43,7 @@ const Test = ({
 
   return (
     <div
-      className="test-text"
+      className="test-textbox"
       onClick={() => {
         inputRef.current?.focus();
         setActive(true);

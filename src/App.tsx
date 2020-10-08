@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import "sass/components/App.scss";
+import "scss/components/App.scss";
 import Help from "components/Help";
 import HighScores from "components/HighScores";
 import Layouts from "components/Layouts";
@@ -16,9 +16,9 @@ import Profile from "components/Profile";
 const App = () => {
   return (
     <Router>
-      <div className="flex-container ml-1 mr-3 mt-2">
-        <div className="row">
-          <div className="col">
+      <div className="app-container">
+        <div className="row m-0 p-0">
+          <div className="col m-0 p-0">
             <Switch>
               <Route path="/Profile" component={Profile} />
               <Route path="/Help" component={Help} />
@@ -28,7 +28,7 @@ const App = () => {
               <Redirect exact to="/" />
             </Switch>
           </div>
-          <div className="col-2  nav-col">
+          <div className="col-2 nav-col m-0 p-0">
             <Navbar />
           </div>
         </div>

@@ -1,17 +1,13 @@
-@import "sass/abstracts/_variables.scss";
+@import "scss/abstracts/_variables.scss";
 
-.test-text {
+$test-font-size: 1.5rem;
+
+.test-textbox {
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid $muted;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-%typing-text {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-  font-size: 1.5rem;
+  padding-top: $test-font-size;
+  padding-bottom: $test-font-size;
 }
 
 .invisible-input {
@@ -23,7 +19,13 @@
   height: 0;
 }
 
-// >> Make these colors available to all members
+%typing-text {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  font-size: $test-font-size;
+  line-height: $test-font-size * 1.5;
+}
+
 .text-inactive {
   @extend %typing-text;
   color: $grey;

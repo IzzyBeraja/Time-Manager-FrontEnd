@@ -90,7 +90,7 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   };
 
   return (
-    <div className="mx-3 ">
+    <div className="mx-3">
       <div className="row border-bottom mx-0 pb-2 justify-content-between">
         <div className="col-6 p-0">
           <RecentTestStats
