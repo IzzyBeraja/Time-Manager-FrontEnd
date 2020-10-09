@@ -1,3 +1,4 @@
+import ImageButton from "components/common/ImageButton";
 import React from "react";
 import "scss/components/Options.scss";
 
@@ -14,16 +15,22 @@ const Options = ({
 }: Props) => {
   return (
     <div className="d-flex justify-content-end align-items-center">
-      <i
-        className="fas fa-expand-arrows-alt option-img-btn"
+      <ImageButton
+        className="option-img-btn"
+        primaryImage="fas fa-expand-arrows-alt"
+        secondaryImage="fas fa-compress-arrows-alt"
         onClick={onFullscreen}
         title="Fullscreen"
       />
-      <i
-        className="fas fa-moon option-img-btn"
+
+      <ImageButton
+        className="option-img-btn"
+        primaryImage="fas fa-moon"
+        secondaryImage="fas fa-sun"
         onClick={onDarkModeToggle}
         title="Change dark/light mode"
       />
+
       <button
         type="button"
         className="btn btn-dark mx-1"
