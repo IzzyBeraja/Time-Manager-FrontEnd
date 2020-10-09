@@ -5,15 +5,14 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import "scss/components/App.scss";
 import Help from "components/Help";
 import HighScores from "components/HighScores";
-import Layouts from "components/Layouts";
+import Layouts from "components/KeyLayouts";
 import Navbar from "components/Navbar";
 import Practice from "components/Practice";
 import Profile from "components/Profile";
 
-const App = () => {
+const MainLayout = () => {
   return (
     <Router>
       <div className="app-container">
@@ -37,4 +36,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default MainLayout;

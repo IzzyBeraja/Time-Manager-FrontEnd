@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "scss/components/Test.scss";
+import "./Test.scss";
 import { AnswerTypes } from "types";
 
 type Props = {

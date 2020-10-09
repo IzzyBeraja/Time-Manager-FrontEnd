@@ -1,4 +1,5 @@
 import React from "react";
+import "./ButtonWithImage.scss";
 
 type Props = {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -6,6 +7,7 @@ type Props = {
   text: string;
   image: string;
   className?: string;
+  imageClassName?: string;
 };
 
 const ButtonWithImage = ({ onClick, text, title, image, className }: Props) => {
@@ -16,7 +18,7 @@ const ButtonWithImage = ({ onClick, text, title, image, className }: Props) => {
       onClick={onClick}
       title={title}
     >
-      <i className={`${image}`} style={{ marginRight: ".5rem" }} />
+      <i className={`${image} btnImage`} />
       {text}
     </button>
   );

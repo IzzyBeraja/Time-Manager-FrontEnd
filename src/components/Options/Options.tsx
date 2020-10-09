@@ -1,7 +1,7 @@
 import ButtonWithImage from "components/common/ButtonWithImage";
 import ImageButton from "components/common/ImageButton";
 import React from "react";
-import "scss/components/Options.scss";
+import "./Options.scss";
 
 type Props = {
   onFullscreen: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;

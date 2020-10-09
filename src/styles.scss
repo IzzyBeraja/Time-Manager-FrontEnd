@@ -1,1 +1,24 @@
-@import "scss/vendor/vendor-dir.scss";
+@import "scss/vendors/vendor-dir.scss";
+@import "layout/theme.scss";
+
+html {
+  background-color: $sepia;
+}
+
+.app-container {
+  background-color: $sepia;
+}
+
+.nav-col {
+  border-left: $borderStyle;
+  height: 90vh;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

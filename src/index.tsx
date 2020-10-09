@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import MainLayout from "./layout/MainLayout";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "styles.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MainLayout />
   </React.StrictMode>,
   document.getElementById("root")
 );
