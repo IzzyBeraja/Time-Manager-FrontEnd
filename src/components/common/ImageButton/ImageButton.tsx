@@ -19,7 +19,9 @@ const ImageButton = ({
 
   return (
     <i
-      className={`${className} ${buttonState ? primaryImage : secondaryImage}`}
+      className={`${className ?? ""} ${
+        buttonState ? primaryImage : secondaryImage
+      }`}
       onClick={data => {
         onClick(data);
         setButtonState(!buttonState);

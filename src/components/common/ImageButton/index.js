@@ -1,3 +1,3 @@
-import ImageButton from './ImageButton'
+import ImageButton from './ImageButton';
 
 export default ImageButton;
