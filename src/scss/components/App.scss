@@ -1,9 +1,19 @@
 @import "scss/abstracts/_variables";
 
 .app-container {
+  background-color: $sepia;
 }
 
 .nav-col {
-  border-left: 1px solid $muted;
+  border-left: $borderStyle;
   height: 90vh;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
