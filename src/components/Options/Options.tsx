@@ -18,19 +18,20 @@ const Options = ({
     <div className="d-flex justify-content-end align-items-center">
       <ImageButton
         className="option-img-btn"
+        title="Fullscreen"
+        onClick={onFullscreen}
         primaryImage="fas fa-expand-arrows-alt"
         secondaryImage="fas fa-compress-arrows-alt"
-        onClick={onFullscreen}
-        title="Fullscreen"
       />
       <ImageButton
         className="option-img-btn"
+        title="Change dark/light mode"
+        onClick={onDarkModeToggle}
         primaryImage="fas fa-moon"
         secondaryImage="fas fa-sun"
-        onClick={onDarkModeToggle}
-        title="Change dark/light mode"
       />
       <ButtonWithImage
+        className="btn btn-dark"
         title="Additional Settings"
         onClick={onSettingsClicked}
         image="fas fa-cogs"

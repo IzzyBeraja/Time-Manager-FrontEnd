@@ -12,11 +12,11 @@ const ButtonWithImage = ({ onClick, text, title, image, className }: Props) => {
   return (
     <button
       type="button"
-      className={`${className ?? ""} btn btn-dark mx-1`}
+      className={`${className ?? ""}`}
       onClick={onClick}
       title={title}
     >
-      <i className={`${image} mr-2`} />
+      <i className={`${image}`} style={{ marginRight: ".5rem" }} />
       {text}
     </button>
   );
