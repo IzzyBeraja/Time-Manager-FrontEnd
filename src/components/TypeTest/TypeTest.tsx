@@ -91,8 +91,8 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
 
   return (
     <div className="mx-3">
-      <div className="row border-bottom mx-0 pb-2 justify-content-between">
-        <div className="col-6 p-0">
+      <div className="row border-bottom mx-0 pb-2  p-0 justify-content-between">
+        <div className="col-6 px-0">
           <RecentTestStats
             speedLabel={"Speed: "}
             speed={stats.speed}
@@ -108,7 +108,7 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
             scoreGain={stats.scoreChange}
           />
         </div>
-        <div className="col-4">
+        <div className="col-4 px-0">
           <Options
             onFullscreen={handleFullscreen}
             onDarkModeToggle={handleDarkMode}

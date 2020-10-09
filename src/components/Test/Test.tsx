@@ -63,7 +63,7 @@ const Test = ({
           setActive(false);
         }}
       />
-      <div className="text-center container">
+      <div className="container text-center">
         {text.map((l, index) => (
           <span key={index} className={letterColor(index)}>
             {l}
