@@ -1,5 +1,9 @@
 @import "scss/abstracts/_variables";
 
+html {
+  background-color: $sepia;
+}
+
 .app-container {
   background-color: $sepia;
 }
