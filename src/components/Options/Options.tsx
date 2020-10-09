@@ -1,3 +1,4 @@
+import ButtonWithImage from "components/common/ButtonWithImage";
 import ImageButton from "components/common/ImageButton";
 import React from "react";
 import "scss/components/Options.scss";
@@ -22,7 +23,6 @@ const Options = ({
         onClick={onFullscreen}
         title="Fullscreen"
       />
-
       <ImageButton
         className="option-img-btn"
         primaryImage="fas fa-moon"
@@ -30,16 +30,12 @@ const Options = ({
         onClick={onDarkModeToggle}
         title="Change dark/light mode"
       />
-
-      <button
-        type="button"
-        className="btn btn-dark mx-1"
-        onClick={onSettingsClicked}
+      <ButtonWithImage
         title="Additional Settings"
-      >
-        <i className="fas fa-cogs mr-2" />
-        Settings
-      </button>
+        onClick={onSettingsClicked}
+        image="fas fa-cogs"
+        text="Settings"
+      />
     </div>
   );
 };
