@@ -72,15 +72,16 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
     const wrongAnswers = answers.filter(a => a === "-").length;
     const rightAnswers = text.length - wrongAnswers;
     const wpm = text.length / avgWordLength / time;
-    const runScore = rightAnswers * 20 - wrongAnswers * 20;
+    const score = rightAnswers * 20 - wrongAnswers * 20;
+    const accuracy = ((rightAnswers - wrongAnswers) / text.length) * 100;
 
     const runStats: Stats = {
       speed: wpm,
       speedChange: wpm - stats.speed,
-      errors: wrongAnswers,
-      errorsChange: wrongAnswers - stats.errors,
-      score: runScore,
-      scoreChange: runScore - stats.score,
+      accuracy: accuracy,
+      accuracyChange: accuracy - stats.accuracy,
+      score: score,
+      scoreChange: score - stats.score,
       time: time * 60,
       textLength: text.length,
     };
@@ -92,19 +93,16 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   return (
     <div className="mx-3">
       <div className="row border-bottom mx-0 pb-2  p-0 justify-content-between">
-        <div className="col-6 px-0">
+        <div className="col-7 px-0">
           <RecentTestStats
             speedLabel={"Speed: "}
             speed={stats.speed}
-            errorsLabel={"Errors: "}
-            errors={stats.errors}
+            speedGain={stats.speedChange}
+            accuracyLabel={"Accuracy: "}
+            accuracy={stats.accuracy}
+            accuracyGain={stats.accuracyChange}
             scoreLabel={"Score: "}
             score={stats.score}
-            speedGainLabel={"Gain: "}
-            speedGain={stats.speedChange}
-            errorsGainLabel={"Gain: "}
-            errorsGain={stats.errorsChange}
-            scoreGainLabel={"Gain: "}
             scoreGain={stats.scoreChange}
           />
         </div>

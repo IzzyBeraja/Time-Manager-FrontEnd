@@ -11,8 +11,8 @@ const Practice = () => {
   const [stats, setStats] = useState<Stats>({
     speed: 0,
     speedChange: 0,
-    errors: 0,
-    errorsChange: 0,
+    accuracy: 0,
+    accuracyChange: 0,
     score: 0,
     scoreChange: 0,
     time: 0,

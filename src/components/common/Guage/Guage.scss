@@ -1,0 +1,51 @@
+@import "layout/theme.scss";
+
+// >> @extend general header type font
+.primary-label {
+  color: $grey;
+}
+
+.primary-value {
+  color: $black;
+}
+
+.secondary-text {
+  display: inline;
+  margin: 0 0.2rem;
+}
+
+%fontawesomeStyle {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.75rem;
+  margin: 0 0.1rem;
+}
+
+.gain::before {
+  color: $green;
+  @extend %fontawesomeStyle;
+  content: "\f106";
+}
+
+.gain {
+  color: $green;
+}
+
+.drop::before {
+  color: $red;
+  @extend %fontawesomeStyle;
+  content: "\f107";
+}
+.drop {
+  color: $red;
+}
+
+.same::before {
+  color: $black;
+  @extend %fontawesomeStyle;
+  content: "\f068";
+}
+
+.same {
+  color: $black;
+}

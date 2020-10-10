@@ -3,8 +3,8 @@ export type AnswerTypes = "+" | "-";
 export type Stats = {
   speed: number;
   speedChange: number;
-  errors: number;
-  errorsChange: number;
+  accuracy: number;
+  accuracyChange: number;
   score: number;
   scoreChange: number;
   time: number;
