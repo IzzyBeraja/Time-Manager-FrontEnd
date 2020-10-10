@@ -14,38 +14,36 @@
   margin: 0 0.2rem;
 }
 
+.secondary-text::before {
+  content: "(";
+}
+
+.secondary-text::after {
+  content: ")";
+}
+
 %fontawesomeStyle {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin: 0 0.1rem;
-}
-
-.gain::before {
-  color: $green;
-  @extend %fontawesomeStyle;
-  content: "\f106";
+  vertical-align: text-bottom;
 }
 
 .gain {
   color: $green;
 }
-
-.drop::before {
-  color: $red;
+.gain::before {
+  color: $green;
   @extend %fontawesomeStyle;
-  content: "\f107";
+  content: "\f106  +";
 }
+
 .drop {
   color: $red;
 }
 
-.same::before {
-  color: $black;
+.drop::before {
   @extend %fontawesomeStyle;
-  content: "\f068";
-}
-
-.same {
-  color: $black;
+  content: "\f107  -";
 }

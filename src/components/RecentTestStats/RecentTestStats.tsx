@@ -41,7 +41,7 @@ const RecentTestStats = ({
           primaryValue={accuracy}
           secondaryValue={accuracyGain}
           precision={2}
-          toPercent={true}
+          isPercent={true}
         />
       </div>
       <div className="col">
