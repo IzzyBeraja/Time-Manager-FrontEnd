@@ -3,9 +3,10 @@ import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 
 import { Stats } from "types";
+import { getTest } from "services/TypeTestService";
 
 const Practice = () => {
-  const [text, setText] = useState("This is a test of the software.");
+  const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
     speed: 0,
@@ -20,9 +21,8 @@ const Practice = () => {
 
   const handleTestFinish = (stats: Stats) => {
     setStats(stats);
-    setText(
-      "Now this is the story all about how, My life got flipped-turned upside down, And I'd like to take a minute, just sit right there, I'll tell you how I became the prince of a town called Bel Air."
-    );
+    const test = getTest();
+    setText(test.text);
     setKeySet(getKeySet());
     console.log(stats);
   };
