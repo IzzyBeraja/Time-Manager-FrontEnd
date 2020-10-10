@@ -4,31 +4,28 @@ import "./Navbar.scss";
 
 const Navbar = () => {
   return (
-    <nav className="nav flex-column sticky-top">
-      <Link
-        className="nav-link text-center border-bottom text-secondary"
-        to="/account"
-      >
+    <nav>
+      <Link className="nav-link" to="/account">
         Izzy Beraja
       </Link>
-      <Link className="nav-link border-bottom text-secondary" to="/">
-        <i className="fas fa-keyboard mr-2" />
+      <Link className="nav-link" to="/">
+        <i className="fas fa-keyboard" />
         Practice
       </Link>
-      <Link className="nav-link border-bottom text-secondary" to="/profile">
-        <i className="fas fa-chart-bar mr-2" />
+      <Link className="nav-link" to="/profile">
+        <i className="fas fa-chart-bar" />
         Profile
       </Link>
-      <Link className="nav-link border-bottom text-secondary" to="/help">
-        <i className="fas fa-question-circle mr-2" />
+      <Link className="nav-link" to="/help">
+        <i className="fas fa-question-circle" />
         Help
       </Link>
-      <Link className="nav-link border-bottom text-secondary" to="/highscores">
-        <i className="fas fa-trophy mr-2" />
+      <Link className="nav-link" to="/highscores">
+        <i className="fas fa-trophy" />
         High Scores
       </Link>
-      <Link className="nav-link border-bottom text-secondary" to="/layouts">
-        <i className="fas fa-palette mr-2" />
+      <Link className="nav-link" to="/layouts">
+        <i className="fas fa-palette" />
         Layouts
       </Link>
     </nav>
