@@ -95,15 +95,28 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
       <div className="row border-bottom mx-0 pb-2  p-0 justify-content-between">
         <div className="col-7 px-0">
           <RecentTestStats
-            speedLabel={"Speed: "}
-            speed={stats.speed}
-            speedGain={stats.speedChange}
-            accuracyLabel={"Accuracy: "}
-            accuracy={stats.accuracy}
-            accuracyGain={stats.accuracyChange}
-            scoreLabel={"Score: "}
-            score={stats.score}
-            scoreGain={stats.scoreChange}
+            data={[
+              {
+                key: "speed",
+                label: "Speed: ",
+                value: stats.speed,
+                delta: stats.speedChange,
+              },
+              {
+                key: "accuracy",
+                label: "Accuracy: ",
+                value: stats.accuracy,
+                delta: stats.accuracyChange,
+                precision: 2,
+                isPercent: true,
+              },
+              {
+                key: "score",
+                label: "Score: ",
+                value: stats.score,
+                delta: stats.scoreChange,
+              },
+            ]}
           />
         </div>
         <div className="col-4 px-0">
