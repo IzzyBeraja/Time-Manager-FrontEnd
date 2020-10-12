@@ -16,3 +16,18 @@ export type Key = {
   rating: number;
   active: boolean;
 };
+
+export type GuageData = {
+  key: string;
+  label: string;
+  value: number;
+  delta: number;
+  precision?: number;
+  isPercent?: boolean;
+};
+
+export type TestResults = {
+  answers: AnswerTypes[];
+  startTime: number;
+  endTime: number;
+};

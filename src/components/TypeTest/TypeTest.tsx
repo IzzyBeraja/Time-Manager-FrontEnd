@@ -4,13 +4,13 @@ import Options from "components/Options";
 import Test from "components/Test";
 import RecentTestStats from "components/RecentTestStats";
 import TestVisual from "components/TestVisual";
-import { AnswerTypes, Stats, Key } from "types";
+import { AnswerTypes, Stats, Key, TestResults } from "types";
 
 type Props = {
   text: string;
   keySet: Key[];
   stats: Stats;
-  onTestFinish: (stats: Stats) => void;
+  onTestFinish: (results: TestResults) => void;
 };
 
 const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
@@ -65,33 +65,17 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   };
 
   const testFinish = () => {
-    const time = (Date.now() - startTime) / (1000 * 60);
-    const avgWordLength = 5;
-    const wrongAnswers = answers.filter(a => a === "-").length;
-    const rightAnswers = text.length - wrongAnswers;
-    const wpm = text.length / avgWordLength / time;
-    const score = rightAnswers * 20 - wrongAnswers * 20;
-    const accuracy = ((rightAnswers - wrongAnswers) / text.length) * 100;
-
-    const runStats: Stats = {
-      speed: wpm,
-      speedChange: wpm - stats.speed,
-      accuracy: accuracy,
-      accuracyChange: accuracy - stats.accuracy,
-      score: score,
-      scoreChange: score - stats.score,
-      time: time * 60,
-      textLength: text.length,
-    };
-
-    reset();
-    onTestFinish(runStats);
+    if (text.length !== 0) {
+      reset();
+      onTestFinish({ answers, startTime, endTime: Date.now() });
+    }
   };
 
+  // > Raise the state of RecentTestStats data to Practice
   return (
     <div className="mx-3">
       <div className="row border-bottom mx-0 pb-2  p-0 justify-content-between">
-        <div className="col-7 px-0">
+        <div className="col-6 px-0">
           <RecentTestStats
             data={[
               {

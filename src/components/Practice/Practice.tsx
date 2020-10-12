@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 
-import { Stats } from "types";
+import { Stats, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
 
 const Practice = () => {
@@ -16,15 +16,71 @@ const Practice = () => {
     score: 0,
     scoreChange: 0,
     time: 0,
-    textLength: text.length,
+    textLength: 0,
   });
 
-  const handleTestFinish = (stats: Stats) => {
+  useEffect(() => {
+    const statsFromStorage = getStats();
+    setStats(statsFromStorage);
+    setText(getTest().text);
+    setKeySet(getKeySet());
+  }, []);
+
+  const handleTestFinish = (results: TestResults) => {
+    const stats = getStatsForRace(results);
+    storeStats(stats);
     setStats(stats);
-    const test = getTest();
-    setText(test.text);
+    setText(getTest().text);
     setKeySet(getKeySet());
     console.log(stats);
+  };
+
+  const storeStats = (stats: Stats) => {
+    localStorage.setItem("speed", stats.speed.toString());
+    localStorage.setItem("dSpeed", stats.speedChange.toString());
+    localStorage.setItem("accuracy", stats.accuracy.toString());
+    localStorage.setItem("dAccuracy", stats.accuracyChange.toString());
+    localStorage.setItem("score", stats.score.toString());
+    localStorage.setItem("dScore", stats.scoreChange.toString());
+    localStorage.setItem("time", stats.time.toString());
+    localStorage.setItem("textLength", stats.time.toString());
+  };
+
+  const getStats = () => {
+    const stats: Stats = {
+      speed: Number(localStorage.getItem("speed")),
+      speedChange: Number(localStorage.getItem("dSpeed")),
+      accuracy: Number(localStorage.getItem("accuracy")),
+      accuracyChange: Number(localStorage.getItem("dAccuracy")),
+      score: Number(localStorage.getItem("score")),
+      scoreChange: Number(localStorage.getItem("dScore")),
+      time: Number(localStorage.getItem("time")),
+      textLength: Number(localStorage.getItem("textLength")),
+    };
+    return stats;
+  };
+
+  const getStatsForRace = ({ answers, startTime, endTime }: TestResults) => {
+    const time = (endTime - startTime) / (1000 * 60);
+    const avgWordLength = 5;
+    const wrongAnswers = answers.filter(a => a === "-").length;
+    const rightAnswers = text.length - wrongAnswers;
+    const wpm = text.length / avgWordLength / time;
+    const score = rightAnswers * 20 - wrongAnswers * 20;
+    const accuracy = ((rightAnswers - wrongAnswers) / text.length) * 100;
+
+    const runStats: Stats = {
+      speed: wpm,
+      speedChange: wpm - stats.speed,
+      accuracy: accuracy,
+      accuracyChange: accuracy - stats.accuracy,
+      score: score,
+      scoreChange: score - stats.score,
+      time: time * 60,
+      textLength: text.length,
+    };
+
+    return runStats;
   };
 
   return (
