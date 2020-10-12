@@ -16,17 +16,17 @@ type Props = {
 const Lesson = ({ keySet, currentKey }: Props) => {
   return (
     <div>
-      <div className="row">
-        <div className="col-2">Lesson's key set:</div>
-        <div className="col">
+      <div className="flex border-bottom">
+        <div className="lesson-col-primary">Lesson's key set:</div>
+        <div className="lesson-col-secondary">
           {keySet.map(keyVal => (
             <ColorBox key={keyVal.letter} keyVal={keyVal} />
           ))}
         </div>
       </div>
-      <div className="row">
-        <div className="col-2">Current Key:</div>
-        <div className="col">{currentKey}</div>
+      <div className="flex">
+        <div className="lesson-col-primary">Current Key:</div>
+        <div className="lesson-col-secondary">{currentKey}</div>
       </div>
     </div>
   );

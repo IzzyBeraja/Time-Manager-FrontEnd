@@ -1,0 +1,14 @@
+$col-amount: 12;
+
+.flex {
+  display: flex;
+  line-height: 2.25rem;
+}
+
+.lesson-col-primary {
+  width: 100% / $col-amount;
+}
+
+.lesson-col-secondary {
+  width: 100% - 100% / $col-amount;
+}

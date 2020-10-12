@@ -84,12 +84,14 @@ const Practice = () => {
   };
 
   return (
-    <TypeTest
-      text={text}
-      keySet={keySet}
-      stats={stats}
-      onTestFinish={handleTestFinish}
-    />
+    <div className="mx-5">
+      <TypeTest
+        text={text}
+        keySet={keySet}
+        stats={stats}
+        onTestFinish={handleTestFinish}
+      />
+    </div>
   );
 };
 
