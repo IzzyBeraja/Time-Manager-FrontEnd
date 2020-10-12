@@ -1,14 +1,14 @@
 import React from "react";
 import "./Guage.scss";
 
-interface Props {
+type Props = {
   primaryLabel: string;
   primaryValue: number;
   secondaryValue: number;
   precision?: number;
   reverseSecondaryColor?: boolean;
   isPercent?: boolean;
-}
+};
 
 const Guage = ({
   primaryLabel,
@@ -18,12 +18,12 @@ const Guage = ({
   //reverseSecondaryColor,
   isPercent: p,
 }: Props) => {
-  const style: (value: number) => string = value => {
+  const style = (value: number) => {
     if (value === 0) return "";
     return value > 0 ? "gain" : "drop";
   };
 
-  const format: (value: number) => string = value => {
+  const format = (value: number) => {
     return Math.abs(value).toFixed(precision) + (p ? "%" : "");
   };
 

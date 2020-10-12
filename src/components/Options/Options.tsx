@@ -15,16 +15,16 @@ const Options = ({
   onSettingsClicked,
 }: Props) => {
   return (
-    <div className="d-flex justify-content-end align-items-center">
+    <div className="options">
       <ImageButton
-        className="option-img-btn"
+        className="options-img-btn"
         title="Fullscreen"
         onClick={onFullscreen}
         primaryImage="fas fa-expand-arrows-alt"
         secondaryImage="fas fa-compress-arrows-alt"
       />
       <ImageButton
-        className="option-img-btn"
+        className="options-img-btn"
         title="Change dark/light mode"
         onClick={onDarkModeToggle}
         primaryImage="fas fa-moon"

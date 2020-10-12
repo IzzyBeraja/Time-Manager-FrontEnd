@@ -1,15 +1,7 @@
 import React from "react";
 import Guage from "components/common/Guage";
+import { GuageData } from "types";
 import "./RecentTestStats.scss";
-
-type GuageData = {
-  key: string;
-  label: string;
-  value: number;
-  delta: number;
-  precision?: number;
-  isPercent?: boolean;
-};
 
 type Props = {
   data: GuageData[];

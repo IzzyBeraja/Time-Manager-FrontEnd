@@ -1,6 +1,7 @@
 import React from "react";
 import ColorBox from "components/common/ColorBox";
 import { Key } from "types";
+import "./Lesson.scss";
 
 type Props = {
   keySet: Key[];

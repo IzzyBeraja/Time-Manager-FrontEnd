@@ -1,9 +1,10 @@
 import React from "react";
 import { Key } from "types";
+import "./ColorBox.scss";
 
-interface Props {
+type Props = {
   keyVal: Key;
-}
+};
 
 const ColorBox = ({ keyVal }: Props) => {
   const { active, rating, letter } = keyVal;
@@ -15,11 +16,9 @@ const ColorBox = ({ keyVal }: Props) => {
 
   return (
     <span
-      className="border"
+      className="colorBox"
       style={{
         backgroundColor: `${color(rating)}`,
-        padding: ".2rem .55rem",
-        margin: "0 1px",
       }}
     >
       {letter}

@@ -1,6 +1,12 @@
 @import "layout/theme.scss";
 
-.option-img-btn {
+.options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.options-img-btn {
   cursor: pointer;
   font-size: 1.5rem;
   margin: 0.25rem;
