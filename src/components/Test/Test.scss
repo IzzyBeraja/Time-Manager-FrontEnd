@@ -1,6 +1,6 @@
 @import "layout/theme.scss";
 
-$test-font-size: 1.5rem;
+$test-font-size: 1.75rem;
 
 .test-textbox {
   display: flex;
@@ -20,8 +20,8 @@ $test-font-size: 1.5rem;
 }
 
 %typing-text {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Ubuntu Mono", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
   font-size: $test-font-size;
   line-height: $test-font-size * 1.5;
 }

@@ -9,9 +9,17 @@ $white: #ffffff;
 $green: #01c70b;
 $red: #c70404;
 $sepia: #fdf5df;
+$brown: #642b09;
 
 //=============//
 //*  Borders  *//
 //=============//
 
 $borderStyle: 1px solid $muted;
+
+//=============//
+//*   Fonts   *//
+//=============//
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&family=Cutive+Mono&family=Ubuntu+Mono&display=swap");
