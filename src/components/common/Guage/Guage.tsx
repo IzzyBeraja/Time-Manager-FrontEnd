@@ -28,13 +28,13 @@ const Guage = ({
   };
 
   return (
-    <>
+    <div>
       <span className="primary-label">{primaryLabel}</span>
       <span className="primary-value">{format(pv)}</span>
       <p className="secondary-text">
         <span className={style(sv)}>{format(sv)}</span>
       </p>
-    </>
+    </div>
   );
 };
 

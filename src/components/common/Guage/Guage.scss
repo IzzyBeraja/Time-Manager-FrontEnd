@@ -6,12 +6,13 @@
 }
 
 .primary-value {
+  margin: 0 0.2rem;
   color: $black;
 }
 
 .secondary-text {
   display: inline;
-  margin: 0 0.2rem;
+  margin: 0 0.1rem;
 }
 
 .secondary-text::before {

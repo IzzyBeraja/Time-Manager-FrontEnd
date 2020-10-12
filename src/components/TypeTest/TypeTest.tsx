@@ -17,8 +17,6 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   const [currentPos, setCurrentPos] = useState(0);
   const [answers, setAnswers] = useState<Array<AnswerTypes>>([]);
   const [startTime, setStartTime] = useState(Date.now());
-
-  //* This is a ref to the invisible test input
   const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
@@ -101,6 +99,7 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
                 label: "Speed: ",
                 value: stats.speed,
                 delta: stats.speedChange,
+                precision: 1,
               },
               {
                 key: "accuracy",

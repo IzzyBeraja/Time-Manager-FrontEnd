@@ -1,5 +1,6 @@
 import React from "react";
 import Guage from "components/common/Guage";
+import "./RecentTestStats.scss";
 
 type GuageData = {
   key: string;
@@ -16,19 +17,16 @@ type Props = {
 
 const RecentTestStats = ({ data }: Props) => {
   return (
-    // >> Inline styling might be much better here
-    <div className="row">
+    <div className="stats">
       {data.map(({ key, label, value, delta, precision, isPercent }) => (
-        <div className="col">
-          <Guage
-            key={key}
-            primaryLabel={label}
-            primaryValue={value}
-            secondaryValue={delta}
-            precision={precision}
-            isPercent={isPercent}
-          />
-        </div>
+        <Guage
+          key={key}
+          primaryLabel={label}
+          primaryValue={value}
+          secondaryValue={delta}
+          precision={precision}
+          isPercent={isPercent}
+        />
       ))}
     </div>
   );
