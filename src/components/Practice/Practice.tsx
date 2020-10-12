@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
+import ReactMarkdown from "react-markdown";
 
 import { Stats, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
 
+// > Move file from public. For some reason can only read from public
+
 const Practice = () => {
+  const [md, setMd] = useState("");
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
@@ -24,6 +28,12 @@ const Practice = () => {
     setStats(statsFromStorage);
     setText(getTest().text);
     setKeySet(getKeySet());
+
+    fetch("content/practice.md")
+      .then(r => r.text())
+      .then(text => {
+        setMd(text);
+      });
   }, []);
 
   const handleTestFinish = (results: TestResults) => {
@@ -91,6 +101,9 @@ const Practice = () => {
         stats={stats}
         onTestFinish={handleTestFinish}
       />
+      <div className="container mt-5">
+        <ReactMarkdown source={md} />
+      </div>
     </div>
   );
 };
