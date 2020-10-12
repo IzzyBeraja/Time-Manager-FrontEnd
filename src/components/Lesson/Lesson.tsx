@@ -8,11 +8,6 @@ type Props = {
   currentKey: string;
 };
 
-/*
->>  Use Sass variables to set up more columns and have better spacing?
->>  https://getbootstrap.com/docs/4.1/layout/grid/#columns-and-gutters
-*/
-
 const Lesson = ({ keySet, currentKey }: Props) => {
   return (
     <div>

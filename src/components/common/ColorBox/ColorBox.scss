@@ -1,7 +1,13 @@
 @import "layout/theme.scss";
 
+$colorBoxSize: 1.75rem;
+
 .colorBox {
-  padding: 0.2rem 0.55rem;
-  margin: 0 1px;
+  line-height: $colorBoxSize;
+  height: $colorBoxSize;
+  width: $colorBoxSize;
   border: $borderStyle;
+  font-family: "Ubuntu Mono";
+  display: inline-block;
+  text-align: center;
 }

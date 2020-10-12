@@ -1,4 +1,6 @@
-$col-amount: 12;
+@import "layout/theme.scss";
+
+$col-amount: 11;
 
 .flex {
   display: flex;
@@ -7,6 +9,7 @@ $col-amount: 12;
 
 .lesson-col-primary {
   width: 100% / $col-amount;
+  color: $grey;
 }
 
 .lesson-col-secondary {

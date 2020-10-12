@@ -15,14 +15,14 @@ const ColorBox = ({ keyVal }: Props) => {
   };
 
   return (
-    <span
+    <div
       className="colorBox"
       style={{
         backgroundColor: `${color(rating)}`,
       }}
     >
       {letter}
-    </span>
+    </div>
   );
 };
 
