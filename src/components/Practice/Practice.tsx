@@ -84,7 +84,7 @@ const Practice = () => {
   };
 
   return (
-    <div className="mx-5">
+    <div className="mx-5 pt-2">
       <TypeTest
         text={text}
         keySet={keySet}

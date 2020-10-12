@@ -18,23 +18,23 @@ const Options = ({
     <div className="options">
       <ImageButton
         className="options-img-btn"
-        title="Fullscreen"
-        onClick={onFullscreen}
-        primaryImage="fas fa-expand-arrows-alt"
-        secondaryImage="fas fa-compress-arrows-alt"
+        title="Change dark/light mode"
+        onClick={onDarkModeToggle}
+        primaryImage="far fa-lightbulb"
+        secondaryImage="fas fa-lightbulb"
       />
       <ImageButton
         className="options-img-btn"
-        title="Change dark/light mode"
-        onClick={onDarkModeToggle}
-        primaryImage="fas fa-moon"
-        secondaryImage="fas fa-sun"
+        title="Fullscreen"
+        onClick={onFullscreen}
+        primaryImage="fas fa-expand"
+        secondaryImage="fas fa-compress"
       />
       <ButtonWithImage
         className="btn btn-dark"
         title="Additional Settings"
         onClick={onSettingsClicked}
-        image="fas fa-cogs"
+        image="fas fa-cog"
         text="Settings"
       />
     </div>
