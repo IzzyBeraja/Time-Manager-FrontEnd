@@ -23,8 +23,8 @@ const MainLayout = () => {
               <Route path="/Help" component={Help} />
               <Route path="/Highscores" component={HighScores} />
               <Route path="/Layouts" component={Layouts} />
-              <Route path="/" component={Practice} />
-              <Redirect exact to="/" />
+              <Route exact path="/" component={Practice} />
+              <Redirect to="/" />
             </Switch>
           </div>
           <div className="col-2 nav-col tight">
