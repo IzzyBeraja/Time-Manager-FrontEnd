@@ -7,28 +7,16 @@ import "./TypeTestHeader.scss";
 
 type Props = {
   recentTestData: GuageData[];
-  handleFullscreen: () => void;
-  handleDarkMode: () => void;
-  handleSettings: () => void;
 };
 
-const TypeTestHeader = ({
-  recentTestData,
-  handleFullscreen,
-  handleDarkMode,
-  handleSettings,
-}: Props) => {
+const TypeTestHeader = ({ recentTestData }: Props) => {
   return (
     <div className="typetest-header-primary">
       <div className="col-5 tight">
         <RecentTestStats data={recentTestData} />
       </div>
       <div className="typetest-header-secondary">
-        <Options
-          onFullscreen={handleFullscreen}
-          onDarkModeToggle={handleDarkMode}
-          onSettingsClicked={handleSettings}
-        />
+        <Options />
       </div>
     </div>
   );

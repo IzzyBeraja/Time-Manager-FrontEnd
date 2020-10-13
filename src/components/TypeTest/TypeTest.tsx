@@ -52,18 +52,6 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
     setAnswers([]);
   };
 
-  const handleFullscreen = () => {
-    console.log("Fullscreen?");
-  };
-
-  const handleDarkMode = () => {
-    console.log("Dark mode?");
-  };
-
-  const handleSettings = () => {
-    console.log("Settings?");
-  };
-
   const handleTestPlay = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (
       currentPos === text.length ||
@@ -98,12 +86,7 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   // > Raise the state of RecentTestStats data to Practice
   return (
     <div className="tight">
-      <TypeTestHeader
-        recentTestData={data}
-        handleFullscreen={handleFullscreen}
-        handleDarkMode={handleDarkMode}
-        handleSettings={handleSettings}
-      />
+      <TypeTestHeader recentTestData={data} />
       <div className="border-bottom">
         <Lesson keySet={keySet} currentKey={"No Key"} />
       </div>

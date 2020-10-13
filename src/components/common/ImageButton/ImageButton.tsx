@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 type Props = {
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   title: string;
+  value: boolean;
   primaryImage: string;
   secondaryImage: string;
   className?: string;
@@ -10,22 +11,16 @@ type Props = {
 
 const ImageButton = ({
   onClick,
+  title,
+  value,
   primaryImage,
   secondaryImage,
-  title,
   className,
 }: Props) => {
-  const [buttonState, setButtonState] = useState(true);
-
   return (
     <i
-      className={`${className ?? ""} ${
-        buttonState ? primaryImage : secondaryImage
-      }`}
-      onClick={data => {
-        onClick(data);
-        setButtonState(!buttonState);
-      }}
+      className={`${className ?? ""} ${value ? primaryImage : secondaryImage}`}
+      onClick={onClick}
       title={title}
     />
   );
