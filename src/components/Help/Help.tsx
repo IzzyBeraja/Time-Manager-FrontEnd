@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import md from "content/help.md";
+import readMarkdown from "scripts/readMarkdown";
 
 const Help = () => {
   const [markdown, setMarkdown] = useState("");
-
-  fetch(md)
-    .then(r => r.text())
-    .then(text => setMarkdown(text));
+  readMarkdown(md, setMarkdown);
 
   return (
     <div className="container markdown">
