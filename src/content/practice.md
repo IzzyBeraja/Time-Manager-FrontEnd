@@ -1,7 +1,7 @@
 # Typing Test
 
 Test your typing skills with an interactive test. This typing program has been
-modeled after the typing test at [Keybr.com](www.keybr.com) and I highly
+modeled after the typing test at [Keybr.com](https://www.keybr.com) and I highly
 recommend that you check them out!
 
 ## What is Touch Typing?

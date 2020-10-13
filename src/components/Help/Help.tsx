@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import md from "content/help.md";
 
 const Help = () => {
-  return <h1>Help</h1>;
+  const [markdown, setMarkdown] = useState("");
+
+  fetch(md)
+    .then(r => r.text())
+    .then(text => setMarkdown(text));
+
+  return (
+    <div className="container markdown">
+      <ReactMarkdown source={markdown} />
+    </div>
+  );
 };
 
 export default Help;
