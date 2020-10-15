@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./Test.module.scss";
 import { AnswerTypes } from "types";
+import styles from "./Test.module.scss";
 
 type Props = {
   text: string[];
@@ -34,16 +34,16 @@ const Test = ({
   });
 
   const letterColor = (index: number) => {
-    if (!active) return "text-inactive";
-    if (index === currentPos && cursor) return "text-highlight";
+    if (!active) return "textInactive";
+    if (index === currentPos && cursor) return "textHighlight";
     if (index < answers.length)
-      return answers[index] === "+" ? "text-correct" : "text-wrong";
-    return "text-active";
+      return answers[index] === "+" ? "textCorrect" : "textWrong";
+    return "textActive";
   };
 
   return (
     <div
-      className="test-textbox"
+      className={styles.textbox}
       onClick={() => {
         inputRef.current?.focus();
         setActive(true);
@@ -52,7 +52,7 @@ const Test = ({
       <input
         id="input"
         autoComplete="off"
-        className="invisible-input"
+        className={styles.invisibleInput}
         onKeyDown={data => {
           handleKeyDown(data);
           setCursor(true);
@@ -63,9 +63,9 @@ const Test = ({
           setActive(false);
         }}
       />
-      <div className="container text-center">
+      <div className={`container ${styles.textCenter}`}>
         {text.map((l, index) => (
-          <span key={index} className={letterColor(index)}>
+          <span key={index} className={styles[letterColor(index)]}>
             {l}
           </span>
         ))}

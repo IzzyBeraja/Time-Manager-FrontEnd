@@ -1,17 +1,17 @@
 @import "styles/theme.scss";
 
-%typetest-header {
+%typetestHeader {
   justify-content: space-between;
   display: flex;
   padding-bottom: 0.1rem;
 }
 
-.typetest-header-primary {
-  @extend %typetest-header;
+.typetestHeaderPrimary {
+  @extend %typetestHeader;
   border-bottom: $borderStyle;
   align-items: flex-end;
 }
 
-.typetest-header-secondary {
-  @extend %typetest-header;
+.typetestHeaderSecondary {
+  @extend %typetestHeader;
 }

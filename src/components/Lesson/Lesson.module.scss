@@ -7,11 +7,11 @@ $col-amount: 11;
   line-height: 2.25rem;
 }
 
-.lesson-col-primary {
+.lessonColPrimary {
   width: 100% / $col-amount;
   color: $grey;
 }
 
-.lesson-col-secondary {
+.lessonColSecondary {
   width: 100% - 100% / $col-amount;
 }

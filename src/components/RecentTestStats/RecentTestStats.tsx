@@ -1,7 +1,7 @@
 import React from "react";
 import Guage from "components/common/Guage";
 import { GuageData } from "types";
-import "./RecentTestStats.module.scss";
+import styles from "./RecentTestStats.module.scss";
 
 type Props = {
   data: GuageData[];
@@ -9,7 +9,7 @@ type Props = {
 
 const RecentTestStats = ({ data }: Props) => {
   return (
-    <div className="stats">
+    <div className={styles.stats}>
       {data.map(({ key, label, value, delta, precision, isPercent }) => (
         <Guage
           key={key}

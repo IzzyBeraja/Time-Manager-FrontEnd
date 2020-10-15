@@ -2,7 +2,7 @@
 
 $test-font-size: 1.5rem;
 
-.test-textbox {
+.textbox {
   display: flex;
   justify-content: space-around;
   border-bottom: $borderStyle;
@@ -10,7 +10,7 @@ $test-font-size: 1.5rem;
   padding-bottom: $test-font-size;
 }
 
-.invisible-input {
+.invisibleInput {
   position: absolute;
   cursor: default;
   opacity: 0;
@@ -26,28 +26,28 @@ $test-font-size: 1.5rem;
   line-height: $test-font-size * 1.5;
 }
 
-.text-inactive {
+.textInactive {
   @extend %typing-text;
   color: $grey;
 }
 
-.text-active {
+.textActive {
   @extend %typing-text;
   color: $black;
 }
 
-.text-highlight {
+.textHighlight {
   @extend %typing-text;
   background-color: $black;
   color: $white;
 }
 
-.text-correct {
+.textCorrect {
   @extend %typing-text;
   color: $green;
 }
 
-.text-wrong {
+.textWrong {
   @extend %typing-text;
   color: $red;
 }

@@ -2,10 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Lesson from "components/Lesson";
 import Test from "components/Test";
 import TestVisual from "components/TestVisual";
-import { AnswerTypes, Stats, Key, TestResults } from "types";
-
-import "./TypeTest.module.scss";
 import TypeTestHeader from "components/TypeTestHeader";
+import { AnswerTypes, Stats, Key, TestResults } from "types";
+import styles from "./TypeTest.module.scss";
 
 type Props = {
   text: string;

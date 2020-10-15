@@ -32,7 +32,7 @@ const Guage = ({
       <span className={styles.primaryLabel}>{primaryLabel}</span>
       <span className={styles.primaryValue}>{format(pv)}</span>
       <p className={styles.secondaryText}>
-        <span className={style(sv)}>{format(sv)}</span>
+        <span className={styles[style(sv)]}>{format(sv)}</span>
       </p>
     </div>
   );

@@ -3,7 +3,7 @@ import RecentTestStats from "components/RecentTestStats";
 import React from "react";
 import { GuageData } from "types";
 
-import "./TypeTestHeader.module.scss";
+import styles from "./TypeTestHeader.module.scss";
 
 type Props = {
   recentTestData: GuageData[];
@@ -11,11 +11,11 @@ type Props = {
 
 const TypeTestHeader = ({ recentTestData }: Props) => {
   return (
-    <div className="typetest-header-primary">
+    <div className={styles.typetestHeaderPrimary}>
       <div className="col-5 tight">
         <RecentTestStats data={recentTestData} />
       </div>
-      <div className="typetest-header-secondary">
+      <div className={styles.typetestHeaderSecondary}>
         <Options />
       </div>
     </div>
