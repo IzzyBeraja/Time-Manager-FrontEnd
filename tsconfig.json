@@ -2,7 +2,11 @@
   "compileOnSave": true,
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -14,8 +18,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "pages/KeyLayouts",
+    "pages/HighScores",
+    "pages/Profile",
+    "pages/Practice"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

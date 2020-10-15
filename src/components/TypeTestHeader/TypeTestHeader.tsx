@@ -3,7 +3,7 @@ import RecentTestStats from "components/RecentTestStats";
 import React from "react";
 import { GuageData } from "types";
 
-import "./TypeTestHeader.scss";
+import "./TypeTestHeader.module.scss";
 
 type Props = {
   recentTestData: GuageData[];

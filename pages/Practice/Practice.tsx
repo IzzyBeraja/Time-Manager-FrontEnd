@@ -22,7 +22,7 @@ const Practice = () => {
     textLength: 0,
   });
   const [markdown, setMarkdown] = useState("");
-  readMarkdown(md, setMarkdown);
+  //readMarkdown(md, setMarkdown);
 
   useEffect(() => {
     const statsFromStorage = getStats();
@@ -96,9 +96,9 @@ const Practice = () => {
         stats={stats}
         onTestFinish={handleTestFinish}
       />
-      <div className="container markdown mt-5">
+      {/*       <div className="container markdown mt-5">
         <ReactMarkdown source={markdown} />
-      </div>
+      </div> */}
     </div>
   );
 };

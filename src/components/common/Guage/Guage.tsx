@@ -1,5 +1,5 @@
 import React from "react";
-import "./Guage.scss";
+import "./Guage.module.scss";
 
 type Props = {
   primaryLabel: string;

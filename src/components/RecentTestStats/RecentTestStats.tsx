@@ -1,7 +1,7 @@
 import React from "react";
 import Guage from "components/common/Guage";
 import { GuageData } from "types";
-import "./RecentTestStats.scss";
+import "./RecentTestStats.module.scss";
 
 type Props = {
   data: GuageData[];

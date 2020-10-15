@@ -1,6 +1,6 @@
 import React from "react";
 import { Key } from "types";
-import "./ColorBox.scss";
+import "./ColorBox.module.scss";
 
 type Props = {
   keyVal: Key;

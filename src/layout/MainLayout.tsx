@@ -6,11 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Help from "components/Help";
-import HighScores from "components/HighScores";
-import Layouts from "components/KeyLayouts";
 import Navbar from "components/Navbar";
-import Practice from "components/Practice";
-import Profile from "components/Profile";
 
 const MainLayout = () => {
   return (
@@ -19,11 +15,7 @@ const MainLayout = () => {
         <div className="row tight">
           <div className="col tight">
             <Switch>
-              <Route path="/Profile" component={Profile} />
               <Route path="/Help" component={Help} />
-              <Route path="/Highscores" component={HighScores} />
-              <Route path="/Layouts" component={Layouts} />
-              <Route exact path="/" component={Practice} />
               <Redirect to="/" />
             </Switch>
           </div>

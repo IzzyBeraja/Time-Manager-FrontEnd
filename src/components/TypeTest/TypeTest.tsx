@@ -4,7 +4,7 @@ import Test from "components/Test";
 import TestVisual from "components/TestVisual";
 import { AnswerTypes, Stats, Key, TestResults } from "types";
 
-import "./TypeTest.scss";
+import "./TypeTest.module.scss";
 import TypeTestHeader from "components/TypeTestHeader";
 
 type Props = {

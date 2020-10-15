@@ -1,5 +1,5 @@
 import React from "react";
-import "./ButtonWithImage.scss";
+import "./ButtonWithImage.module.scss";
 
 type Props = {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

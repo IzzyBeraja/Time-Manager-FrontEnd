@@ -2,22 +2,22 @@ import React, { useContext, useState } from "react";
 import ButtonWithImage from "components/common/ButtonWithImage";
 import ImageButton from "components/common/ImageButton";
 import ThemeContext from "context/ThemeContext";
-import "./Options.scss";
+import "./Options.module.scss";
 
 const Options = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
-  const [fullscreen, setFullscreen] = useState(
-    document.fullscreenElement === null
-  );
+  const [fullscreen, setFullscreen] = useState("");
+  //document.fullscreenElement === null
+  //);
 
   const handleFullScreen = () => {
     if (fullscreen) document.documentElement.requestFullscreen();
     else document.exitFullscreen();
   };
 
-  document.onfullscreenchange = () => {
+  /*   document.onfullscreenchange = () => {
     setFullscreen(document.fullscreenElement === null);
-  };
+  }; */
 
   return (
     <div className="options">
@@ -32,7 +32,7 @@ const Options = () => {
       <ImageButton
         className="options-img-btn"
         title="Fullscreen"
-        value={fullscreen}
+        value={false} //fullscreen}
         onClick={handleFullScreen}
         primaryImage="fas fa-expand"
         secondaryImage="fas fa-compress"
