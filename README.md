@@ -10,9 +10,21 @@ TypeScript with React.
 As a template, I will be using a layout of a similar website that I have used
 for over 10 hours and have learned how to type using the Colemak keyboard setup.
 
-The name of the site is [KeyBr](https://www.keybr.com) and I would highly recommend you to
-check it out as I have done over 1000+ tests and have been able to improve my
-typing from 20wpm to an average of 75wpm.
+The name of the site is [KeyBr](https://www.keybr.com) and I would highly
+recommend you to check it out as I have done over 1000+ tests and have been able
+to improve my typing from 20wpm to an average of 75wpm.
+
+## Recent updates
+
+I added support for NextJS and should now be pre-rendering most pages. I also
+had to fix a ton of broken SCSS files and connections but I have finally been
+able to complete it.
+
+What I now would like to do is add the horizontal NavBar back in a way that
+applies to every page. It may be through a higherOrderComponent but I'm not sure
+yet. As well, I would like to add the markdown back into the website.
+
+These changes should be available really soon! Very exciting! 😁
 
 ## Goals
 
