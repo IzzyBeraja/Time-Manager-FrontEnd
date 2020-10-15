@@ -22,7 +22,8 @@
     "pages/KeyLayouts",
     "pages/HighScores",
     "pages/Profile",
-    "pages/Practice"
+    "pages/Practice",
+    "lib/readMarkdown.ts"
   ],
   "exclude": ["node_modules"]
 }

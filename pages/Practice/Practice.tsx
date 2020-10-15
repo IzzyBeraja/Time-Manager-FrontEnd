@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 import ReactMarkdown from "react-markdown";
-import readMarkdown from "scripts/readMarkdown";
+//import readMarkdown from "../lib/readMarkdown";
 import md from "content/practice.md";
 
 import { Stats, TestResults } from "types";
