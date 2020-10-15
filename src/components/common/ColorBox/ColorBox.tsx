@@ -1,6 +1,6 @@
 import React from "react";
 import { Key } from "types";
-import "./ColorBox.module.scss";
+import styles from "./ColorBox.module.scss";
 
 type Props = {
   keyVal: Key;
@@ -16,10 +16,11 @@ const ColorBox = ({ keyVal }: Props) => {
 
   return (
     <div
-      className="colorBox"
-      style={{
+      className={styles.colorBox}
+      // > Fix issue with this style. "Works" but causes errors
+      /*       style={{
         backgroundColor: `${color(rating)}`,
-      }}
+      }} */
     >
       {letter}
     </div>

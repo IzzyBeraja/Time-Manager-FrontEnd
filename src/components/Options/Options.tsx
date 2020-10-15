@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import ButtonWithImage from "components/common/ButtonWithImage";
 import ImageButton from "components/common/ImageButton";
 import ThemeContext from "context/ThemeContext";
-import "./Options.module.scss";
+import styles from "./Options.module.scss";
 
 const Options = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
@@ -11,8 +11,8 @@ const Options = () => {
   //);
 
   const handleFullScreen = () => {
-    if (fullscreen) document.documentElement.requestFullscreen();
-    else document.exitFullscreen();
+    /*     if (fullscreen) document.documentElement.requestFullscreen();
+    else document.exitFullscreen(); */
   };
 
   /*   document.onfullscreenchange = () => {
@@ -20,9 +20,9 @@ const Options = () => {
   }; */
 
   return (
-    <div className="options">
+    <div className={styles.options}>
       <ImageButton
-        className="options-img-btn"
+        className={styles.optionsImgButton}
         title="Change dark/light mode"
         value={!darkTheme}
         onClick={setDarkTheme}
@@ -30,7 +30,7 @@ const Options = () => {
         secondaryImage="fas fa-lightbulb"
       />
       <ImageButton
-        className="options-img-btn"
+        className={styles.optionsImgButton}
         title="Fullscreen"
         value={false} //fullscreen}
         onClick={handleFullScreen}

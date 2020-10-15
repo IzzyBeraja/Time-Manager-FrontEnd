@@ -1,5 +1,5 @@
 import React from "react";
-import "./Guage.module.scss";
+import styles from "./Guage.module.scss";
 
 type Props = {
   primaryLabel: string;
@@ -29,9 +29,9 @@ const Guage = ({
 
   return (
     <div>
-      <span className="primary-label">{primaryLabel}</span>
-      <span className="primary-value">{format(pv)}</span>
-      <p className="secondary-text">
+      <span className={styles.primaryLabel}>{primaryLabel}</span>
+      <span className={styles.primaryValue}>{format(pv)}</span>
+      <p className={styles.secondaryText}>
         <span className={style(sv)}>{format(sv)}</span>
       </p>
     </div>

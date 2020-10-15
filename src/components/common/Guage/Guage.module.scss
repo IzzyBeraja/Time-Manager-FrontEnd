@@ -1,25 +1,25 @@
 @import "layout/theme.scss";
 
 // >> @extend general header type font
-.primary-label {
+.primaryLabel {
   color: $grey;
 }
 
-.primary-value {
+.primaryValue {
   margin: 0 0.2rem;
   color: $black;
 }
 
-.secondary-text {
+.secondaryText {
   display: inline;
   margin: 0 0.1rem;
 }
 
-.secondary-text::before {
+.secondaryText::before {
   content: "(";
 }
 
-.secondary-text::after {
+.secondaryText::after {
   content: ")";
 }
 
