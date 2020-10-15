@@ -23,6 +23,8 @@
     "pages/HighScores",
     "pages/Profile",
     "pages/Practice",
+    "pages/Help",
+    "styles/theme.scss",
     "lib/readMarkdown.ts"
   ],
   "exclude": ["node_modules"]
