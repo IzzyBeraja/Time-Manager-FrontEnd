@@ -1,18 +1,18 @@
 import fs from "fs";
 import path from "path";
 
-export type Post = {
+export type Markdown = {
   id: string;
   fileContents: string;
 };
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
-export function getSortedPostsData() {
+export function getMarkdown() {
   console.log(postsDirectory);
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData: Post[] = fileNames.map(fileName => {
+  const allMarkdownData: Markdown[] = fileNames.map(fileName => {
     // Remove ".md" from file name to get id
     const id = fileName;
 
@@ -30,5 +30,5 @@ export function getSortedPostsData() {
     };
   });
   // Sort posts by date
-  return allPostsData;
+  return allMarkdownData;
 }

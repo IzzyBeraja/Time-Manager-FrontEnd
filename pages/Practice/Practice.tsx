@@ -5,14 +5,9 @@ import ReactMarkdown from "react-markdown";
 
 import { Stats, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
-import { getSortedPostsData, Post } from "../../lib/posts";
-import { GetStaticPaths, GetStaticProps } from "next";
+import ComponentWithNav from "components/Home";
 
-type Props = {
-  markdown: Post;
-};
-
-const Practice = ({ markdown }: Props) => {
+const Practice = () => {
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
@@ -99,9 +94,9 @@ const Practice = ({ markdown }: Props) => {
         onTestFinish={handleTestFinish}
       />
       <div className="container markdown mt-5">
-        <ReactMarkdown source={markdown.fileContents} />
+        <ReactMarkdown source={""} />
       </div>
     </div>
   );
 };
-export default Practice;
+export default ComponentWithNav(Practice);

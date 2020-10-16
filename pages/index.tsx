@@ -1,19 +1,19 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { getSortedPostsData, Post } from "../lib/posts";
+import { getMarkdown, Markdown } from "../lib/markdown";
 import Practice from "./Practice";
 
 type Props = {
-  posts: Post[];
+  markdown: Markdown[];
 };
 
 export const getStaticProps: GetStaticProps = async ctx => {
-  const posts = getSortedPostsData();
-  return { props: { posts } };
+  const markdown = getMarkdown();
+  return { props: { markdown } };
 };
 
-const Main = ({ posts }: Props) => {
-  return <Practice markdown={posts[1]} />;
+const Main = ({ markdown }: Props) => {
+  return <div></div>;
 };
 
 export default Main;

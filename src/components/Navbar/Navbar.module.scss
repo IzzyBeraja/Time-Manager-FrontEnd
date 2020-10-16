@@ -1,21 +1,15 @@
-@import "layout/theme.scss";
+@import "styles/theme.scss";
 
-nav {
-  :first-child {
-    text-align: center;
-  }
+.navLink {
   position: sticky;
   flex-direction: column;
   font-weight: 500;
   margin: 0 1rem;
-}
-
-.nav-link {
   border-bottom: $borderStyle;
   color: $grey;
 }
 
-i {
+.img {
   margin-right: 1rem;
   font-size: 1.3rem;
   vertical-align: middle;

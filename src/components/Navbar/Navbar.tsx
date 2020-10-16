@@ -1,32 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.scss";
+import Link from "next/link";
+import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   return (
     <nav>
-      <Link className="nav-link" to="/account">
-        Izzy Beraja
+      <Link href="/account">
+        <a className={`nav-link text-center ${styles.navLink}`}>Izzy Beraja</a>
       </Link>
-      <Link className="nav-link" to="/">
-        <i className="fas fa-keyboard" />
-        Practice
+      <Link href="/">
+        <a className={`nav-link ${styles.navLink}`}>
+          <i className={`fas fa-keyboard ${styles.img}`} />
+          Practice
+        </a>
       </Link>
-      <Link className="nav-link" to="/profile">
-        <i className="fas fa-chart-bar" />
-        Profile
+      <Link href="/profile">
+        <a className={`nav-link ${styles.navLink}`}>
+          <i className={`fas fa-chart-bar ${styles.img}`} />
+          Profile
+        </a>
       </Link>
-      <Link className="nav-link" to="/help">
-        <i className="fas fa-question-circle" />
-        Help
+      <Link href="/help">
+        <a className={`nav-link ${styles.navLink}`}>
+          <i className={`fas fa-question-circle ${styles.img}`} />
+          Help
+        </a>
       </Link>
-      <Link className="nav-link" to="/highscores">
-        <i className="fas fa-trophy" />
-        High Scores
+      <Link href="/HighScores">
+        <a className={`nav-link ${styles.navLink}`}>
+          <i className={`fas fa-trophy ${styles.img}`} />
+          High Scores
+        </a>
       </Link>
-      <Link className="nav-link" to="/layouts">
-        <i className="fas fa-palette" />
-        Layouts
+      <Link href="/layouts">
+        <a className={`nav-link ${styles.navLink}`}>
+          <i className={`fas fa-palette ${styles.img}`} />
+          Layouts
+        </a>
       </Link>
     </nav>
   );
