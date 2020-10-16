@@ -17,15 +17,6 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": [
-    "src",
-    "pages/KeyLayouts",
-    "pages/HighScores",
-    "pages/Profile",
-    "pages/Practice",
-    "pages/Help",
-    "styles/theme.scss",
-    "lib/readMarkdown.ts"
-  ],
+  "include": ["src", "pages", "styles", "lib"],
   "exclude": ["node_modules"]
 }
