@@ -26,7 +26,7 @@
   "scripts": {
     "next-dev": "next dev -p 6849",
     "next-build": "next build",
-    "next-start": "next start",
+    "next-start": "next start -p 6850",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

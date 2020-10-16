@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 import ReactMarkdown from "react-markdown";
-//import readMarkdown from "../lib/readMarkdown";
-import md from "content/practice.md";
 
 import { Stats, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
+import { getSortedPostsData, Post } from "../../lib/posts";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-const Practice = () => {
+type Props = {
+  markdown: Post;
+};
+
+const Practice = ({ markdown }: Props) => {
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
@@ -21,8 +25,6 @@ const Practice = () => {
     time: 0,
     textLength: 0,
   });
-  const [markdown, setMarkdown] = useState("");
-  //readMarkdown(md, setMarkdown);
 
   useEffect(() => {
     const statsFromStorage = getStats();
@@ -96,11 +98,10 @@ const Practice = () => {
         stats={stats}
         onTestFinish={handleTestFinish}
       />
-      {/*       <div className="container markdown mt-5">
-        <ReactMarkdown source={markdown} />
-      </div> */}
+      <div className="container markdown mt-5">
+        <ReactMarkdown source={markdown.fileContents} />
+      </div>
     </div>
   );
 };
-
 export default Practice;

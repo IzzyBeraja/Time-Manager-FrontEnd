@@ -1,3 +1,3 @@
-import Practice from './Practice'
+import Practice from "./Practice";
 
-export default Practice
+export default Practice;
