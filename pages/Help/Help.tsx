@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactMarkdown from "react-markdown";
-import md from "content/help.md";
-//import readMarkdown from "../lib/readMarkdown";
+import ComponentWithNav from "components/Home";
 
 const Help = () => {
-  const [markdown, setMarkdown] = useState("");
-  //readMarkdown(md, setMarkdown);
-
   return (
     <div className="container markdown">
-      <ReactMarkdown source={markdown} />
+      <ReactMarkdown source={""} />
     </div>
   );
 };
 
-export default Help;
+export default ComponentWithNav(Help);
