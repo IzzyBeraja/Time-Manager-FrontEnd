@@ -1,13 +1,24 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { GetStaticProps } from "next";
 import ComponentWithNav from "components/Home";
+import { getMarkdownByName } from "../lib/markdown";
 
-const Help = () => {
+type Props = {
+  markdown: string;
+};
+
+const Help = ({ markdown }: Props) => {
   return (
     <div className="container markdown">
-      <ReactMarkdown source={""} />
+      <ReactMarkdown source={markdown} />
     </div>
   );
 };
 
-export default ComponentWithNav(Help);
+export const getStaticProps: GetStaticProps = async () => {
+  const markdown = getMarkdownByName("help.md").fileContents;
+  return { props: { markdown } };
+};
+
+export default Help;

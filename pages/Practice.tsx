@@ -10,11 +10,10 @@ import { getMarkdownByName, Markdown } from "../lib/markdown";
 import { GetStaticProps } from "next";
 
 type Props = {
-  markdown: Markdown[];
+  markdown: string;
 };
 
 const Practice = ({ markdown }: Props) => {
-  console.log(markdown);
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
@@ -101,14 +100,17 @@ const Practice = ({ markdown }: Props) => {
         onTestFinish={handleTestFinish}
       />
       <div className="container markdown mt-5">
-        <ReactMarkdown source={""} />
+        <ReactMarkdown source={markdown} />
       </div>
     </div>
   );
 };
-export default ComponentWithNav(Practice);
 
-export const getStaticProps: GetStaticProps = async ctx => {
-  const markdown = getMarkdownByName("");
-  return { props: { markdown } };
-};
+export async function getStaticProps() {
+  const markdown = getMarkdownByName("practice.md").fileContents;
+  return {
+    props: { markdown },
+  };
+}
+
+export default Practice;
