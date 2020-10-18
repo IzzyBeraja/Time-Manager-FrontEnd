@@ -4,14 +4,6 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.62",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.5",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "next": "^9.5.5",
@@ -19,17 +11,18 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "3.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.10",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "next-dev": "next dev -p 6849",
     "next-build": "next build",
-    "next-start": "next start -p 6850",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "next-start": "next start -p 6850"
   },
   "eslintConfig": {
     "extends": "react-app"
