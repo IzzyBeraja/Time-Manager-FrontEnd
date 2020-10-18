@@ -8,8 +8,7 @@ export type Markdown = {
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
-export function getMarkdown() {
-  console.log(postsDirectory);
+export function getMarkdownByName(name: string) {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allMarkdownData: Markdown[] = fileNames.map(fileName => {

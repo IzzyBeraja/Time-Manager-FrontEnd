@@ -6,8 +6,15 @@ import ReactMarkdown from "react-markdown";
 import { Stats, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
 import ComponentWithNav from "components/Home";
+import { getMarkdownByName, Markdown } from "../lib/markdown";
+import { GetStaticProps } from "next";
 
-const Practice = () => {
+type Props = {
+  markdown: Markdown[];
+};
+
+const Practice = ({ markdown }: Props) => {
+  console.log(markdown);
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
   const [stats, setStats] = useState<Stats>({
@@ -100,3 +107,8 @@ const Practice = () => {
   );
 };
 export default ComponentWithNav(Practice);
+
+export const getStaticProps: GetStaticProps = async ctx => {
+  const markdown = getMarkdownByName("");
+  return { props: { markdown } };
+};

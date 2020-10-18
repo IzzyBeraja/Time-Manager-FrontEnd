@@ -1,18 +1,18 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { getMarkdown, Markdown } from "../lib/markdown";
-import Practice from "./Practice";
+import { getMarkdownByName, Markdown } from "../lib/markdown";
 
 type Props = {
   markdown: Markdown[];
 };
 
 export const getStaticProps: GetStaticProps = async ctx => {
-  const markdown = getMarkdown();
+  const markdown = getMarkdownByName("");
   return { props: { markdown } };
 };
 
 const Main = ({ markdown }: Props) => {
+  console.log(markdown);
   return <div></div>;
 };
 
