@@ -1,25 +1,28 @@
 import React from "react";
 import Guage from "components/common/Guage";
-import { GuageData } from "types";
+import { Stat } from "types";
 import styles from "./RecentTestStats.module.scss";
 
 type Props = {
-  data: GuageData[];
+  data: Stat[];
 };
 
 const RecentTestStats = ({ data }: Props) => {
   return (
     <div className={styles.stats}>
-      {data.map(({ key, label, value, delta, precision, isPercent }) => (
-        <Guage
-          key={key}
-          primaryLabel={label}
-          primaryValue={value}
-          secondaryValue={delta}
-          precision={precision}
-          isPercent={isPercent}
-        />
-      ))}
+      {data.map(({ key, value }) => {
+        const { label, value: result, delta, isPercent, precision } = value;
+        return (
+          <Guage
+            key={key}
+            primaryLabel={`${label}: `}
+            primaryValue={result}
+            secondaryValue={delta}
+            precision={precision}
+            isPercent={isPercent}
+          />
+        );
+      })}
     </div>
   );
 };

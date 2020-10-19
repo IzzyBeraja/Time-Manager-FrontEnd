@@ -3,11 +3,11 @@ import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 import ReactMarkdown from "react-markdown";
 
-import { Stats, TestResults } from "types";
+import { Stat, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
-import ComponentWithNav from "components/Home";
-import { getMarkdownByName, Markdown } from "../lib/markdown";
+import { getMarkdownByName } from "../lib/markdown";
 import { GetStaticProps } from "next";
+import { getAllStats, saveAllStats } from "../lib/getStats";
 
 type Props = {
   markdown: string;
@@ -16,16 +16,7 @@ type Props = {
 const Practice = ({ markdown }: Props) => {
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
-  const [stats, setStats] = useState<Stats>({
-    speed: 0,
-    speedChange: 0,
-    accuracy: 0,
-    accuracyChange: 0,
-    score: 0,
-    scoreChange: 0,
-    time: 0,
-    textLength: 0,
-  });
+  const [stats, setStats] = useState(getAllStats());
 
   useEffect(() => {
     const statsFromStorage = getStats();
@@ -36,36 +27,15 @@ const Practice = ({ markdown }: Props) => {
 
   const handleTestFinish = (results: TestResults) => {
     const stats = getStatsForRace(results);
-    storeStats(stats);
+    saveAllStats(stats);
     setStats(stats);
     setText(getTest().text);
     setKeySet(getKeySet());
     console.log(stats);
   };
 
-  const storeStats = (stats: Stats) => {
-    localStorage.setItem("speed", stats.speed.toString());
-    localStorage.setItem("dSpeed", stats.speedChange.toString());
-    localStorage.setItem("accuracy", stats.accuracy.toString());
-    localStorage.setItem("dAccuracy", stats.accuracyChange.toString());
-    localStorage.setItem("score", stats.score.toString());
-    localStorage.setItem("dScore", stats.scoreChange.toString());
-    localStorage.setItem("time", stats.time.toString());
-    localStorage.setItem("textLength", stats.time.toString());
-  };
-
   const getStats = () => {
-    const stats: Stats = {
-      speed: Number(localStorage.getItem("speed")),
-      speedChange: Number(localStorage.getItem("dSpeed")),
-      accuracy: Number(localStorage.getItem("accuracy")),
-      accuracyChange: Number(localStorage.getItem("dAccuracy")),
-      score: Number(localStorage.getItem("score")),
-      scoreChange: Number(localStorage.getItem("dScore")),
-      time: Number(localStorage.getItem("time")),
-      textLength: Number(localStorage.getItem("textLength")),
-    };
-    return stats;
+    return getAllStats();
   };
 
   const getStatsForRace = ({ answers, startTime, endTime }: TestResults) => {
@@ -77,16 +47,23 @@ const Practice = ({ markdown }: Props) => {
     const score = rightAnswers * 20 - wrongAnswers * 20;
     const accuracy = ((rightAnswers - wrongAnswers) / text.length) * 100;
 
-    const runStats: Stats = {
-      speed: wpm,
-      speedChange: wpm - stats.speed,
-      accuracy: accuracy,
-      accuracyChange: accuracy - stats.accuracy,
-      score: score,
-      scoreChange: score - stats.score,
-      time: time * 60,
-      textLength: text.length,
-    };
+    const runStats: Stat[] = [
+      {
+        key: "speed",
+        value: { label: "Speed", value: wpm, delta: 0, precision: 1 },
+      },
+      {
+        key: "accuracy",
+        value: {
+          label: "Accuracy",
+          value: accuracy,
+          delta: 0,
+          precision: 2,
+          isPercent: true,
+        },
+      },
+      { key: "score", value: { label: "Score", value: score, delta: 0 } },
+    ];
 
     return runStats;
   };
@@ -106,11 +83,11 @@ const Practice = ({ markdown }: Props) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const markdown = getMarkdownByName("practice.md").fileContents;
   return {
     props: { markdown },
   };
-}
+};
 
 export default Practice;

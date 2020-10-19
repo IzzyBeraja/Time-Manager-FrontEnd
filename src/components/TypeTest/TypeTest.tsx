@@ -3,13 +3,12 @@ import Lesson from "components/Lesson";
 import Test from "components/Test";
 import TestVisual from "components/TestVisual";
 import TypeTestHeader from "components/TypeTestHeader";
-import { AnswerTypes, Stats, Key, TestResults } from "types";
-import styles from "./TypeTest.module.scss";
+import { AnswerTypes, Stat, Key, TestResults } from "types";
 
 type Props = {
   text: string;
   keySet: Key[];
-  stats: Stats;
+  stats: Stat[];
   onTestFinish: (results: TestResults) => void;
 };
 
@@ -18,29 +17,6 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
   const [answers, setAnswers] = useState<Array<AnswerTypes>>([]);
   const [startTime, setStartTime] = useState(Date.now());
   const inputRef = useRef<HTMLInputElement>(null!);
-  const data = [
-    {
-      key: "speed",
-      label: "Speed: ",
-      value: stats.speed,
-      delta: stats.speedChange,
-      precision: 1,
-    },
-    {
-      key: "accuracy",
-      label: "Accuracy: ",
-      value: stats.accuracy,
-      delta: stats.accuracyChange,
-      precision: 2,
-      isPercent: true,
-    },
-    {
-      key: "score",
-      label: "Score: ",
-      value: stats.score,
-      delta: stats.scoreChange,
-    },
-  ];
 
   useEffect(() => {
     if (currentPos === text.length) testFinish();
@@ -82,10 +58,9 @@ const TypeTest = ({ text, keySet, stats, onTestFinish }: Props) => {
     }
   };
 
-  // > Raise the state of RecentTestStats data to Practice
   return (
     <div className="tight">
-      <TypeTestHeader recentTestData={data} />
+      <TypeTestHeader recentTestData={stats} />
       <div className="border-bottom">
         <Lesson keySet={keySet} currentKey={"No Key"} />
       </div>

@@ -1,12 +1,12 @@
 import Options from "components/Options";
 import RecentTestStats from "components/RecentTestStats";
 import React from "react";
-import { GuageData } from "types";
+import { Stat } from "types";
 
 import styles from "./TypeTestHeader.module.scss";
 
 type Props = {
-  recentTestData: GuageData[];
+  recentTestData: Stat[];
 };
 
 const TypeTestHeader = ({ recentTestData }: Props) => {
