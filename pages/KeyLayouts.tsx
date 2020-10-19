@@ -1,5 +1,5 @@
 import React from "react";
-import ComponentWithNav from "components/Home";
+import ComponentWithNav from "components/ComponentWithNav";
 import Link from "next/link";
 
 const KeyLayouts = () => {

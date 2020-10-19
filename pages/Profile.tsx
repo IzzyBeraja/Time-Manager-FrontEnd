@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "components/common/Card";
-import ComponentWithNav from "components/Home";
+import ComponentWithNav from "components/ComponentWithNav";
 
 const Profile = () => {
   return (
