@@ -17,6 +17,6 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["src", "pages", "styles", "lib"],
+  "include": ["src", "pages", "styles", "lib", "services"],
   "exclude": ["node_modules"]
 }

@@ -27,8 +27,11 @@ const keySet: string[] = [
   "J",
 ];
 
+//> This needs to be calculated and sent to db at some point
 export function getKeySet() {
+  let val = 0;
   return keySet.map(key => {
-    return { letter: key, rating: Math.random() * 101, active: true };
+    val += 7.5;
+    return { letter: key, rating: val + 4, active: val % 3 === 0 };
   });
 }
