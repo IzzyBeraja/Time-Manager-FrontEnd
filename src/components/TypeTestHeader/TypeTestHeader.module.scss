@@ -1,17 +1,9 @@
 @import "styles/theme.scss";
 
-%typetestHeader {
+.header {
   justify-content: space-between;
   display: flex;
   padding-bottom: 0.1rem;
-}
-
-.typetestHeaderPrimary {
-  @extend %typetestHeader;
   border-bottom: $borderStyle;
   align-items: flex-end;
-}
-
-.typetestHeaderSecondary {
-  @extend %typetestHeader;
 }

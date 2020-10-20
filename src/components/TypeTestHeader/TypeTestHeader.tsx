@@ -11,13 +11,9 @@ type Props = {
 
 const TypeTestHeader = ({ recentTestData }: Props) => {
   return (
-    <div className={styles.typetestHeaderPrimary}>
-      <div className="col-5 tight">
-        <RecentTestStats data={recentTestData} />
-      </div>
-      <div className={styles.typetestHeaderSecondary}>
-        <Options />
-      </div>
+    <div className={styles.header}>
+      <RecentTestStats data={recentTestData} />
+      <Options />
     </div>
   );
 };
