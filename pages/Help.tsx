@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { GetStaticProps } from "next";
-import { getMarkdownByName } from "../lib/markdown";
+import { getMarkdownByName } from "lib/markdown";
 
 type Props = {
   markdown: string;

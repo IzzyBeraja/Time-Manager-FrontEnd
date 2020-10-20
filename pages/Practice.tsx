@@ -5,9 +5,9 @@ import ReactMarkdown from "react-markdown";
 
 import { TestResults } from "types";
 import { getTest } from "services/TypeTestService";
-import { getMarkdownByName } from "../lib/markdown";
+import { getMarkdownByName } from "lib/markdown";
 import { GetStaticProps } from "next";
-import { getAllStats, initialStats, saveAllStats } from "../lib/getStats";
+import { getAllStats, initialStats, saveAllStats } from "lib/getStats";
 
 type Props = {
   markdown: string;
