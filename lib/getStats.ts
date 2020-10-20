@@ -1,6 +1,6 @@
 import { Stat } from "types";
 
-const initialStats: Stat[] = [
+export const initialStats: Stat[] = [
   {
     key: "speed",
     value: {

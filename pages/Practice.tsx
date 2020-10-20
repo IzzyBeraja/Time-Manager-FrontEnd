@@ -3,11 +3,11 @@ import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 import ReactMarkdown from "react-markdown";
 
-import { Stat, Statistic, TestResults } from "types";
+import { TestResults } from "types";
 import { getTest } from "services/TypeTestService";
 import { getMarkdownByName } from "../lib/markdown";
 import { GetStaticProps } from "next";
-import { getAllStats, saveAllStats } from "../lib/getStats";
+import { getAllStats, initialStats, saveAllStats } from "../lib/getStats";
 
 type Props = {
   markdown: string;
@@ -16,7 +16,7 @@ type Props = {
 const Practice = ({ markdown }: Props) => {
   const [text, setText] = useState("");
   const [keySet, setKeySet] = useState(getKeySet());
-  const [stats, setStats] = useState(getAllStats());
+  const [stats, setStats] = useState(initialStats);
 
   useEffect(() => {
     const statsFromStorage = getStats();
