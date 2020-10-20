@@ -22,7 +22,8 @@
   "scripts": {
     "next-dev": "next dev -p 6849",
     "next-build": "next build",
-    "next-start": "next start -p 6850"
+    "next-start": "next start -p 6850",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"
