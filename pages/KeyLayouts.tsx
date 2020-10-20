@@ -1,5 +1,4 @@
 import React from "react";
-import ComponentWithNav from "components/ComponentWithNav";
 import Link from "next/link";
 
 const KeyLayouts = () => {
@@ -13,4 +12,4 @@ const KeyLayouts = () => {
   );
 };
 
-export default ComponentWithNav(KeyLayouts);
+export default KeyLayouts;

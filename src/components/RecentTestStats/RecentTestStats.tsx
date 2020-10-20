@@ -13,9 +13,8 @@ const RecentTestStats = ({ data }: Props) => {
       {data.map(({ key, value }) => {
         const { visual, data } = value;
         return (
-          <div className={styles.entry}>
+          <div key={key} className={styles.entry}>
             <Guage
-              key={key}
               primaryLabel={visual.label}
               primaryValue={data.value}
               secondaryValue={data.delta}

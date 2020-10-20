@@ -1,7 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { GetStaticProps } from "next";
-import ComponentWithNav from "components/ComponentWithNav";
 import { getMarkdownByName } from "../lib/markdown";
 
 type Props = {

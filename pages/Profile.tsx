@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "components/common/Card";
-import ComponentWithNav from "components/ComponentWithNav";
 
 const Profile = () => {
   return (
@@ -34,4 +33,4 @@ const Profile = () => {
   );
 };
 
-export default ComponentWithNav(Profile);
+export default Profile;
