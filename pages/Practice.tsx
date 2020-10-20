@@ -3,7 +3,7 @@ import { getKeySet } from "keysets/colemak";
 import TypeTest from "components/TypeTest";
 import ReactMarkdown from "react-markdown";
 
-import { Stat, TestResults } from "types";
+import { Stat, Statistic, TestResults } from "types";
 import { getTest } from "services/TypeTestService";
 import { getMarkdownByName } from "../lib/markdown";
 import { GetStaticProps } from "next";
@@ -28,7 +28,7 @@ const Practice = ({ markdown }: Props) => {
   const handleTestFinish = (results: TestResults) => {
     const stats = getStatsForRace(results);
     saveAllStats(stats);
-    setStats(stats);
+    setStats(getAllStats());
     setText(getTest().text);
     setKeySet(getKeySet());
     console.log(stats);
@@ -47,22 +47,16 @@ const Practice = ({ markdown }: Props) => {
     const score = rightAnswers * 20 - wrongAnswers * 20;
     const accuracy = ((rightAnswers - wrongAnswers) / text.length) * 100;
 
-    const runStats: Stat[] = [
+    const runStats: { key: string; value: number }[] = [
       {
         key: "speed",
-        value: { label: "Speed", value: wpm, delta: 0, precision: 1 },
+        value: wpm,
       },
       {
         key: "accuracy",
-        value: {
-          label: "Accuracy",
-          value: accuracy,
-          delta: 0,
-          precision: 2,
-          isPercent: true,
-        },
+        value: accuracy,
       },
-      { key: "score", value: { label: "Score", value: score, delta: 0 } },
+      { key: "score", value: score },
     ];
 
     return runStats;

@@ -11,15 +11,15 @@ const RecentTestStats = ({ data }: Props) => {
   return (
     <div className={styles.stats}>
       {data.map(({ key, value }) => {
-        const { label, value: result, delta, isPercent, precision } = value;
+        const { visual, data } = value;
         return (
           <Guage
             key={key}
-            primaryLabel={`${label}: `}
-            primaryValue={result}
-            secondaryValue={delta}
-            precision={precision}
-            isPercent={isPercent}
+            primaryLabel={`${visual.label}: `}
+            primaryValue={data.value}
+            secondaryValue={data.delta}
+            precision={visual.precision}
+            isPercent={data.isPercent}
           />
         );
       })}
