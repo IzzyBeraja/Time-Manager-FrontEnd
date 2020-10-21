@@ -20,19 +20,19 @@ but in the meantime, you can see the Speed, Accuracy, and Score of your previous
 test to see how the differences in speed. The way these values are calculated
 are as follows:
 
-#### Speed
+### Speed
 
 Speed is calculated in Words Per Minute. The average word length in English is
 about four letters with every word having a space in between. Scoring a higher
 speed is ultimately the goal, but you can't have speed without accuracy!
 
-#### Accuracy
+### Accuracy
 
 Accuracy is calculated based on the amount of characters correctly typed. Typing
 several characters incorrectly will lower your accuracy. You are only penalized
 up to once per letter.
 
-#### Score
+### Score
 
 You will gain points for every letter typed in correctly on the first try.
 Letters you miss will not be counted against you. Currently speed does not
