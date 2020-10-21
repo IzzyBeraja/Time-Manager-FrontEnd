@@ -17,10 +17,9 @@ const ColorBox = ({ keyVal }: Props) => {
   return (
     <div
       className={styles.colorBox}
-      // > Fix issue with this style. "Works" but causes errors
-      /*       style={{
+      style={{
         backgroundColor: `${color(rating)}`,
-      }} */
+      }}
     >
       {letter}
     </div>
