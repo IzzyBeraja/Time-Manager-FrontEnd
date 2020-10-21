@@ -14,30 +14,18 @@ The name of the site is [KeyBr](https://www.keybr.com) and I would highly
 recommend you to check it out as I have done over 1000+ tests and have been able
 to improve my typing from 20wpm to an average of 75wpm.
 
-## Recent updates
-
-I added support for NextJS and should now be pre-rendering most pages. I also
-had to fix a ton of broken SCSS files and connections but I have finally been
-able to complete it.
-
-What I now would like to do is add the horizontal NavBar back in a way that
-applies to every page. It may be through a higherOrderComponent but I'm not sure
-yet. As well, I would like to add the markdown back into the website.
-
-These changes should be available really soon! Very exciting! 😁
-
 ## Goals
 
 This project has the following goals and pieces that I would like to implement:
 
 - [x] Handle keypresses from the user
 - [x] Vertical navigation bar
-- [ ] Statistics
+- [x] Statistics
 - [ ] Support different keyboard layouts
 - [ ] Usage of advertisements?
 - [ ] High scores
 - [ ] Customized tests
-- [ ] Markdown for pages with text
+- [x] Markdown for pages with text
 - [ ] Animations of keyboard comparisons
 
 And much more!
